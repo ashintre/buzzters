@@ -72,8 +72,7 @@ function keyHandler(function_keyPress){
 
 $(document).ready(function(){  
 	/* add code that will be called before init() is called
-	 */
-	 init();
+	 */	 
 });
 
 
@@ -93,7 +92,8 @@ function nowPlayingAggregator(nowPlayingInfo){
 	//var nowPlayingStr =  "<b>"+ nowPlayingInfo.title + "</b>" +"<br/><br/>" + nowPlayingInfo.description;
 	/*var innerHTML = "<b> Movie Name : " + nowPlayingInfo.title + "</b><br>";
 	innerHTML += "<b> Movie Description : " + nowPlayingInfo.description + "</b><br>";
-	$('#csf').html(innerHTML);		*/
+	$('#csf').html(innerHTML);
+	$('#thirdParty').html("Put cast here");*/
 	
 	// API_GET_IMDB_ID contains the baseURL for the API to get IMDB Id of movie from movie name
 	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('Inception')), function(data)
@@ -133,19 +133,55 @@ function getTMDBBaseDetails(imdbId)
 			{
 				console.log("Tagline : " + tmdb_info_response[0].tagline);
 				console.log("Budget : $" + tmdb_info_response[0].budget);
-				console.log("Revenue : $" + tmdb_info_response[0].revenue;
-				populateActorInfo(tmdb_info_response);
+				console.log("Revenue : $" + tmdb_info_response[0].revenue);
+				populateCastInfo(tmdb_info_response);
 			});						
 		}
 	});
 }
 
-function populateActorInfo(tmdb_info_response)
+function populateCastInfo(tmdb_info_response)
 {	
-	for(var cast in tmdb_info_response[0].cast)
-	{
-		console.log("Name : " + cast.name);
+	var jobs = new Array();
+	var cast = new Array();
+	for(var index in tmdb_info_response[0].cast)
+	{		
+		if($.inArray(tmdb_info_response[0].cast[index].job, jobs) == -1)
+		{	
+			jobs.push(tmdb_info_response[0].cast[index].job);
+			cast[tmdb_info_response[0].cast[index].job] = new Array();
+		}
 	}
+	console.log("Jobs : " + jobs);
+	
+	// Put these into the cast Array	
+	for(var index in tmdb_info_response[0].cast)
+	{
+		cast[tmdb_info_response[0].cast[index].job].push(tmdb_info_response[0].cast[index].name);
+	}
+	setCastHTML(cast);
+}
+
+function setCastHTML(cast)
+{
+	//First create the accordion	
+	$("#thirdParty").append($("<div id='castAccordion'></div>"));
+	for(var index in cast)
+	{
+		$("#castAccordion").append($("<h3><a href='#'>" + index + "</a></h3>"));
+		$("#castAccordion").append($("<div><p>Random Text</p></div>"));
+	}
+	
+	/*var castAccordionHTML = "<div id='castAccordion'>";
+	for(var index in cast)
+	{
+		castAccordionHTML += "<h3><a href='#'>" + index + "</a></h3>";
+		castAccordionHTML += "<div>Random Text</div>";
+	}
+	castAccordionHTML += "</div>";
+	console.log(castAccordionHTML);
+	$("#thirdParty").html(castAccordionHTML);*/
+	$("#castAccordion").accordion();
 }
 
 function parseableMovieName(origName)
