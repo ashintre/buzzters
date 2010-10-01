@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user>
+	<widgetList> <!-- List of Widgets -->
+		<widget> 
+			<name>weather</name> <!-- Name of Widget -->
+			<title>Weather</title> <!-- Title to be displayed for Widget -->
+			<description>Shows the weather of a given zipcode</description> <!-- Description about the widget -->
+			<icon>weather.png</icon> <!-- Image for Icon view -->
+		        <selected>true</selected> <!-- Determine if Widget is selected for use -->
+		        <version>1</version> <!-- Version of Widget -->	        
+		</widget>
+<widget>
+<projectkey>RNOC-Examples</projectkey>
+<name>flipPanels</name>
+<title>RSS Feeds</title>
+<description> RSS Feeds !</description>
+<icon>../flipPanels/rss.png</icon>
+<view>icon</view>
+<selected>true</selected>
+</widget>
+<widget>
+<projectkey>RNOC-Examples</projectkey>
+<name>newsopinion</name>
+<title>News Opinion</title>
+<description> Shows the News Opinion </description>
+<icon>../newsopinion/newsopinion.png</icon>
+<view>icon</view>
+<selected>true</selected>
+</widget>
+</widgetList>
+    	
+		    	
+	<globalvalues> <!-- Global values -->
+		<zipcode>94085</zipcode> <!-- User Location -->
+		<email>matt@gatech.edu</email> <!-- User Email (optional) -->
+	</globalvalues>
+</user>

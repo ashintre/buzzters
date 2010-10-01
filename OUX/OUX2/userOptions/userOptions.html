@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>User Options</title>
+		<!-- JQUERY FILES! Make sure jquery goes before jquery ui JS. Doesn't work if order is changed -->
+		<link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+		<script class="jquery" id="minJS" type="text/javascript" src="./../../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script> <!-- JQuery JS -->
+		<script class="jquery" id="uiMinJS" type="text/javascript" src="./../../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script> <!-- JQuery JS -->
+		
+		<!--User Options FILES-->		
+		<link type="text/css" href="./userOptions.css" rel="stylesheet" />			
+		<script type="text/javascript" src="./userOptions.js"></script>
+		
+	</head>
+	<body onLoad="init()">
+		<!-- Tabs -->
+		<div id="tabs">
+			<ul class="tabsList">
+				<li class="tabsItem"><a href="#widget_panel">Widgets</a></li>
+				<li class="tabsItem"><a href="#theme_panel">Themes</a></li>
+				<li class="tabsItem"><a href="#setting_panel">Settings</a></li>
+			</ul>
+			<div id="widget_panel"></div>
+			<div id="theme_panel"></div>
+			<div id="setting_panel"></div>
+		</div>
+
+	</body>
+</html>
+
+

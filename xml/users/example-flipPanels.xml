@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user>
+	<widgetList> <!-- List of Widgets -->
+		<widget> 
+			<name>flipPanels</name> <!-- Name of Widget -->
+			<title>Flip Panels - RSS Feeds</title> <!-- Title to be displayed for Widget -->
+			<description>Display RSS Feeds using flip panels</description> <!-- Description about the widget -->
+			<icon></icon> <!-- Image for Icon view -->
+		        <selected>true</selected> <!-- Determine if Widget is selected for use -->
+		        <version>1</version> <!-- Version of Widget -->	        
+		</widget>
+	</widgetList>
+    	
+		    	
+	<globalvalues> <!-- Global values -->
+		<zipcode>94085</zipcode> <!-- User Location -->
+		<email>matt@gatech.edu</email> <!-- User Email (optional) -->
+	</globalvalues>
+</user>

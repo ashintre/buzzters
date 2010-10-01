@@ -1,0 +1,61 @@
+#panel_container{
+	font-size: 1.5em;
+	color: white;
+}
+
+#panel_list{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+	background: yellow;
+}
+
+.icon #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+/*-----Regular View Configuration-----*/
+.regular {
+	position: absolute;	
+	background: black;
+}
+
+.regular #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker {
+	position: absolute;	
+	background: black;
+}
+
+.ticker #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+/*-----Small View Configuration-----*/
+.small {
+	position: absolute;
+	background: black;
+}
+
+.small #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+/*-----Configuration for all Views-----*/
+#panel_list ul, #panel_list li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

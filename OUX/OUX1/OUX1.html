@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content="GT-RNOC" />
+        <title>Motorola ITV Widget Platform</title>
+				
+		<!-- JQUERY FILES! Make sure jquery goes before jquery ui JS. Doesn't work if order is changed -->
+		<link type="text/css" rel="stylesheet" href="../../jquery/themes/custom-theme/jquery-ui-1.8.custom.css"/>
+		<script type="text/javascript" src="../../jquery/jquery-1.4.2.min.js"></script> <!-- JQuery JS -->		
+		<script type="text/javascript" src="../../jquery/ui/jquery-ui-1.8.custom.js"></script> <!-- JQuery JS -->
+		<script type="text/javascript" src="../../jquery/ui/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="../../jquery/ui/jquery.effects.core.js"></script>
+		<script type="text/javascript" src="../../jquery/ui/jquery.ui.widget.js"></script> 
+		<script type="text/javascript" src="../../jquery/ui/jquery.ui.accordion.js"></script>
+		
+		
+		
+	
+
+            <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+            <link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+            <script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+            <script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+            <!-- External JS Related to PLATFORM -->
+            <script type="text/javascript" src="../../javascript/Platform_DebugMsgViewer.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_ServicesPortal.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_Core.js"></script> <!-- External Object Model JS -->
+            <script type="text/javascript" src="../../javascript/PLATFORM_Configuration.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_XHRCalls.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_BootstrapLoader.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_KeyHandling.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+
+
+            <!-- External JS Related to the OUX -->
+            <script type="text/javascript" src="./OUX1_Core.js"></script>
+            <script type="text/javascript" src="./OUX1_LayoutClass.js"></script> <!-- External Object Model JS -->
+            <script type="text/javascript" src="./OUX1_LayoutManagement.js"></script> <!-- External JS Layout1 -->
+            <script type="text/javascript" src="./OUX1_ThemeManagement.js"></script> <!-- External JS Layout1 -->
+
+            <!-- External CSSs related to the OUX -->
+            <link type="text/css" rel="stylesheet" href="./OUX1.css"/>
+
+	</head>
+	<!-- <body onLoad="init()">  -->
+	<body>
+
+		<div id="platform_container" class="noPlatform">
+			<div id="layout_container" class="icon">
+				<div id="video_container">
+                         <embed type="application/x-motorola-toi" hidden="true">
+                          <videoplane id='videoplane' class ="fullvideo">
+                          </videoplane> 
+                 </div>
+				<div id="accordion" class="widget_container">
+				<!--  <div id="transparency"> </div>  -->
+				</div>
+			</div> <!-- End Layout DIV -->
+		</div> <!-- End Container DIV -->
+	
+	
+	
+	
+
+<!--  ********************************************************************************************************* -->
+		<!-- This is the debug part of the file -->
+		<!-- This is for the on screen remote keys -->
+
+		<div id="switch">
+
+			<p>Change Channel</p>
+			<input type="submit" value="Change Channel to Up Movie" onClick="changeChannel(0);"><br>	
+			<input type="submit" value="Change Channel to Nature TV" onClick="changeChannel(1);"><br>		
+			
+			<img align=left src="./remoteKeys/FIRST.jpg"  Name="first" usemap="#keymap"/>
+			<map name="keymap">
+			<area shape ="poly" coords ="112,26,123,38,123,55,112,46,100,53,100,38"
+			onmouseover="rollOver('first', './remoteKeys/UP.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')" 
+			onClick="clickedRemoteKey(84)"/>
+			<area shape ="poly" coords ="101,92,112,104,122,94,122,111,110,120,101,112"
+			onmouseover="rollOver('first', './remoteKeys/DOWN.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(66)"/>
+			<area shape ="poly" coords ="130,62,146,62,156,74,146,85,128,85,139,74"
+			onmouseover="rollOver('first', './remoteKeys/RIGHT.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(72)"/>
+			<area shape ="poly" coords ="67,73,78,63,93,63,84,73,93,85,76,85"
+			onmouseover="rollOver('first', './remoteKeys/LEFT.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(70)"/>
+			<area shape ="circle" coords ="112,74,16"
+			onmouseover="rollOver('first', './remoteKeys/OK.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(71)" />
+			<area shape ="rect" coords ="12,122,53,138"
+			onmouseover="rollOver('first', './remoteKeys/MENU.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(67)" />
+			<area shape ="rect" coords ="62,121,102,139"
+			onmouseover="rollOver('first', './remoteKeys/BACK.jpg')" 
+			onmouseout="rollOver('first', './remoteKeys/FIRST.jpg')"
+			onClick="clickedRemoteKey(86)" />
+			</map> 
+		End of on screen remote keys 
+		
+		 Keyboard key map 
+			<p> Remote Key : Keyboard Key mapping </p>
+			<table border="1">
+			<tr><th>Remote Key</th><th>Keyboard Key</th></tr>
+			<tr><td>OK</td><td>g</td></tr>
+			<tr><td>RIGHT</td><td>h</td></tr>
+			<tr><td>LEFT</td><td>f</td></tr>
+			<tr><td>UP</td><td>t</td></tr>
+			<tr><td>DOWN</td><td>b</td></tr>
+			<tr><td>BACK</td><td>v</td></tr>
+			<tr><td>MENU</td><td>c</td></tr>
+			</table> 
+		    End of keyboard keymap 
+			
+			<p>Change Channel</p>
+			<input type="submit" value="Change Channel to Up Movie" onClick="changeChannel(0);"><br>	
+			<input type="submit" value="Change Channel to Nature TV" onClick="changeChannel(1);"><br>
+			-->
+
+			<!--		
+			<p>Activate Layout</p>
+			<input type="submit" value="Activate" onClick="activateWidgetPlatform();"><br>
+			<input type="submit" value="deActivate" onClick="deActivateWidgetPlatform();"><br>
+			<p>Switch Layout</p>
+			<input type="submit" value="Basic StatusBar Layout" onClick="switchLayout(0);"><br>  // Icon
+			<input type="submit" value="Basic One Widget Layout" onClick="switchLayout(1);"><br> // Regular 
+			<input type="submit" value="Basic Accordion Layout" onClick="switchLayout(2);"><br>  // Full --> 	
+			<!--<p>Slide Widget</p>
+			<input type="submit" value="Show Container" onClick="showContainer();"><br>
+			<input type="submit" value="Hide Container" onClick="hideContainer(400);"> -->
+			<!--
+			<p>Switch Widget</p>
+			<input type="submit" value="Weather" onClick="switchWidget('0');"><br>
+			<input type="submit" value="Actor Profile" onClick="switchWidget('1');">	
+			-->
+		</div> 
+    </body>
+</html>

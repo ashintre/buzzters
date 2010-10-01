@@ -1,0 +1,68 @@
+.selectedWidget{
+  outline: 4px solid green;
+}
+
+/*Regular View Configuration*/
+.regular {
+/*    position: absolute;*/
+/*    background-image: url('../regular_bg.png');    */
+/*    font-family: Verdana, Arial, Helvetica, sans-serif;*/
+    font-size: 14px;
+}
+
+.appItem {
+    height: 60px;
+}
+
+.appIcon{
+    width: 50px;
+    height: 50px;
+    float: left;
+        margin-top: 5px;
+}
+
+.appTitle {
+    position: absolute;
+    font-size: 17px;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+.appStatus{
+    position: absolute;
+    font-size: 14px;
+    margin-top: 37px;
+    color: green;
+    margin-left: 7px;
+}
+
+.regular .textClass{
+    display: none;
+}
+
+#panel_preferences{
+   /* color: black; */
+    padding-top: 0.05em;
+}
+#panel_appStore{
+ /*   color: white;*/
+}
+.panelPreferencesText{
+    font-size: 22px;
+}
+#panel_themes{
+ /*   color: white;*/
+    font-size: 18px;
+}
+
+ul { list-style-type: none;}
+
+#zipCode{
+	color: #000000;
+}
+.zipCode_active{
+	background-color: #FFFF99;
+}
+.regular{
+	font-size:12px;
+}

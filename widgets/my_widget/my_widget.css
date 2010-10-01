@@ -1,0 +1,20 @@
+/*Icon View Configuration*/
+.icon {
+	position: absolute;
+}
+
+.icon #background {
+	width: 90px;
+	height: 90px;
+	background-size: 100%;
+	background-image: url('./my_widget.png');
+	background-position: 100% ;
+	}
+
+.textBox_active{
+	background-color: #FFFF99;
+}
+.ui-helper-reset{
+        font-size: 80%;
+}
+

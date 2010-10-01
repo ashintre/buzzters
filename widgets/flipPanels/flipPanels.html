@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+            <title>Widget:Example</title>
+
+                <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+                <link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+                <script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+                <script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+                <!-- PLATFORM FILES -->
+              
+                <script type="text/javascript" src="../../javascript/PLATFORM_Configuration.js"></script> <!-- Proxy config -->
+                <script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+                <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsTabPanels.js"></script><!-- External JS for this page -->
+                <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.js"></script>
+				<script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibraryFlipPanels.js"></script>
+				  <link type="text/css" rel="stylesheet" href="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.css"/> <!-- Styling defined for each UI Elements-->
+
+                <!-- Standard Widget CSS & JS files -->
+                <link type="text/css" rel="stylesheet" href="../widget_style.css"/> <!-- Styling defined for each Widget Views -->
+                <script type="text/javascript" src="../widget_methods.js"></script> <!-- External Widget JS Library for this page -->
+
+                <!-- Current Widget CSS & JS Files -->
+
+                <!-- <script type="text/javascript" src="./Class_Panel.js" ></script> --> <!-- External JS for Panels -->
+                <link type="text/css" rel="stylesheet" href="./flipPanels.css"/> <!-- Styling defined for Example Widget -->
+                <script type="text/javascript" src="./jgfeed.js"></script> <!-- External JS for Example Widget -->
+                <script type="text/javascript" src="./flipPanels.js"></script> <!-- External JS for Example Widget -->
+                <script type="text/javascript" src="./switchView.js" ></script> <!-- External JS for Switch View -->
+                <script type="text/javascript" src="./proxy.js" ></script> <!-- External JS for Proxy Calls -->
+                <script type="text/javascript" src="./CSF.js" ></script> <!-- External JS for CSF Calls -->
+               
+
+	</head>
+	<body style='margin:0; padding:0'>
+	    <div id='view'>
+	    	<div id='flippanels' class='panel_container'></div>
+	    </div> 
+	</body>
+</html>

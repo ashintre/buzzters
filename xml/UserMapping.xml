@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- have OUX identification -->
+<userList>
+	<user>
+		<id>1</id>
+		<configFile>default.xml</configFile>
+	</user>
+	<user>
+		<id>2</id>
+		<configFile>sample.xml</configFile>
+	</user>
+	<user>
+		<id>example-user2</id>
+		<configFile>example-user2.xml</configFile>
+	</user>
+	<user>
+		<id>example-weather</id>
+		<configFile>example-weather.xml</configFile>
+	</user>
+	<user>
+		<id>example-flipPanels</id>
+		<configFile>example-flipPanels.xml</configFile>
+	</user>
+	<user>
+		<id>example-scrollPanels</id>
+		<configFile>example-scrollPanels.xml</configFile>
+	</user>
+	<user>
+		<id>example-newsOpinion</id>
+		<configFile>example-newsOpinion.xml</configFile>
+	</user>
+	<user>
+		<id>example-skipToClass</id>
+		<configFile>example-skipToClass.xml</configFile>
+	</user>
+	<user>
+		<id>00:02:9b:4b:ea:4c</id>
+		<configFile>user1.xml</configFile>
+	</user>
+	<user>
+		<id>00:02:9b:4b:e9:e5</id>
+		<configFile>user2.xml</configFile>
+	</user>
+	<user>
+		<id>00:02:9b:4b:e9:45</id>
+		<configFile>user3.xml</configFile>
+	</user>
+	<user>
+		<id>00:02:9b:4b:ea:8e</id>
+		<configFile>user4.xml</configFile>
+	</user>
+	<user>
+		<id>00:02:9b:4b:ea:94</id>
+		<configFile>user5.xml</configFile>
+	</user>
+	 <user>
+                <id>00:02:9b:4b:ea:ba</id>
+                <configFile>user6.xml</configFile>
+        </user>
+
+
+</userList>

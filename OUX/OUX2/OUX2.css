@@ -1,0 +1,180 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.fullvideo
+{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:1280px;
+    height:720px;
+    z-index:500;
+   background-image: url('./../../graphics/Up_Movie_screen1.png');
+
+}
+
+.minivideo
+{
+   position: fixed;
+   left: 0px;
+   top: 120px;
+   height: 480px;
+   width: 930px;
+   z-index:500;
+   background-image: url('./../../graphics/Up_Movie_screen2.png');
+
+}
+
+#platform_container{
+	margin: 0;
+	padding: 0;
+	width: 1280px;
+	height:720px;
+	position:relative;
+	overflow: hidden;
+	background-color:black;
+}
+
+#layout_container{
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+}
+
+iframe{
+    height: 100%;
+    width: 100%;
+}
+
+/*-----Without Layout-----*/
+.noLayout #video_container{
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    z-index: 0;
+}
+
+.noLayout .widget_container{
+    display: none;
+    z-index: 1;
+}
+
+/*-----Single Small Layout-----*/
+.SingleSmall #video_container{
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    z-index: 0;
+}
+
+.SingleSmall .widget_container{
+    margin: 0;
+    padding: 0;
+    top: 100px;
+    float: right;
+    right: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.SingleSmall .widget_header{
+	margin: 0;
+	padding: 0;
+	width: 320px;
+	height: 30px;
+	font-weight:normal;
+	font-size:1.5em;
+        text-align: center;
+}
+
+.SingleSmall .widget_frame{
+	margin: 0;
+	padding: 0;
+	width: 320px;
+	height: 180px;
+}
+
+/*-----Single Ticker Layout-----*/
+.SingleTicker #video_container{
+	top: 0;
+	left: 0;
+	width: 1280px;
+	height: 720px;
+	position: absolute;
+	z-index: 0;	
+}
+
+.SingleTicker .widget_container{
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	z-index: 1;
+}
+
+.SingleTicker .widget_header{
+	margin: 0;
+	padding: 0;
+	width: 1280px;
+	height: 30px;
+	font-weight:normal;
+	font-size:1.5em;
+   	text-align: center;
+}
+
+.SingleTicker .widget_frame{
+	margin: 0;
+	padding: 0;
+	width: 1280px;
+	height: 90px;
+}
+
+/*-----Three Small Layout-----*/
+.ThreeSmall #video_container{
+	margin: 0;
+	top: 90px;
+	left: 0;
+	width: 960px;
+	height: 540px;
+	position: absolute;
+	z-index: 0;	
+}
+
+.ThreeSmall .widget_container{
+	margin: 0;
+	padding: 0;
+	top: 20px;
+	float: right;
+	right: 30px;
+	position: absolute;
+	z-index: 1;
+}
+.ThreeSmall .widget_container div{
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.ThreeSmall .widget_header{
+	margin: 0;
+	padding: 0;
+	font-weight:normal;
+	font-size:1.5em;
+        text-align: center;
+	width: 320px;
+	height: 30px;
+}
+
+.ThreeSmall .widget_frame{
+	width: 320px;
+	height: 180px;
+}
+
