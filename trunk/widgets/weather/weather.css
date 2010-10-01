@@ -1,0 +1,411 @@
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+}
+
+.icon #background {
+        text-align:center;
+        align: center;
+        margin: auto;
+	width: 90%;
+	height: 90%;
+	/*border: 3px solid ;*/
+        background-color: gray;
+}
+
+/*-----Small View Configuration-----*/
+.small{
+	margin: auto;
+	padding: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;	
+	color: white; /*font color*/
+}
+
+/*=== Today Panel ===*/
+.small #panel_today{
+	padding-top: 10px;
+	text-align: center;
+	margin: auto;
+	overflow:hidden;
+	font-size: 20px;
+}
+.small #panel_today #t_date{
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.small #panel_today #t_city{
+	margin: 0;
+}
+
+.small #panel_today #t_img{
+	margin: 0;
+}
+
+.small #panel_today #t_temp{
+	font-size: 30px;
+	margin: 0;
+}
+
+.small #panel_today #t_desc{
+	margin: 0;
+}
+
+.small #panel_today #t_navi{
+	margin: 0;
+	padding-top: 5px;
+	font-size: 12px;
+}
+
+/*=== Forecast Panel ===*/
+.small #panel_forecast{
+	text-align: center;	
+	margin: auto;
+	padding-top: 0px;
+}
+
+.small #panel_forecast .forecast {
+	margin: auto;
+	width: 300px;
+	height: 40px;
+}
+.small #panel_forecast .forecast .date{
+	font-size: 14px;
+	top: 0px;
+	float: left;
+	width: 80px;
+}
+
+.small #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 80px;
+}
+
+.small #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.small #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}
+
+.small #panel_forecast #f_navi{
+	margin: 0;
+	font-size: 12px;
+}
+
+/*=== Location Panel ===*/
+.small #panel_location{
+	text-align: center;	
+	margin: auto;
+	padding-top: 0px;
+}
+
+.small #panel_location p{
+	margin: 0;
+	padding: 0;
+}
+
+.small #panel_location #l_city{
+	padding-top: 10px;
+	font-size: 24px;
+}
+
+.small #panel_location #l_zip{
+	padding-top: 20px;	
+	font-size: 12px;
+}
+
+.small #panel_location #l_sub{
+	padding-top: 20px;	
+}
+
+.small #panel_location #l_navi{
+	margin: 0;
+	font-size: 12px;
+}
+
+/*-----Regular View Configuration - also uses Tabs from jQuery-----*/
+
+/*=== Today Panel ===*/
+.regular #panel_today{
+	text-align: center;
+	margin: auto;
+	overflow:hidden;
+}
+.regular #panel_today #t_date{
+	display: block;
+	margin: 0;
+	padding-top: 20px;
+	font-size: 26px;
+}
+
+.regular #panel_today #t_city{
+	display: block;
+	margin: 0;
+	padding: 0;	
+	font-size: 20px;
+}
+
+.regular #panel_today #t_temp{
+	display: block;
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom:5px;	
+	font-size: 80px;
+}
+
+.regular #panel_today #t_desc{
+	display: block;
+	margin: 0;
+	padding: 0;	
+	font-size: 26px;
+}
+
+.regular #panel_today #t_navi{
+	margin: 0;
+	padding-top: 20px;
+	font-size: 12px;
+}
+
+
+/*=== Forecast Panel ===*/
+.regular #panel_forecast{
+	text-align: center;	
+	margin: auto;
+}
+/*
+.regular{
+	background: ;
+	}
+*/
+.regular #panel_forecast .forecast {
+	margin: auto;
+	width: 250px;
+	height: 80px;
+}
+.regular #panel_forecast .forecast .date{
+	font-size: 14px;
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.regular #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.regular #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.regular #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}
+
+.regular #panel_forecast #f_navi{
+	margin: 0;
+	font-size: 12px;
+}
+
+/*=== Location Panel ===*/
+.regular #panel_location{
+	text-align: center;	
+}
+
+.regular #panel_location p{
+	margin: 0;
+	padding: 0;
+}
+
+.regular #panel_location #l_city{
+	padding-top: 100px;
+	font-size: 24px;
+}
+
+.regular #panel_location #l_zip{
+	padding-top: 20px;	
+	font-size: 12px;
+}
+
+.regular #panel_location #l_sub{
+	padding-top: 20px;	
+}
+
+.regular #panel_location #l_navi{
+	margin: 0;
+	padding-top: 20px;
+	font-size: 12px;
+}
+
+/*-----View View Configuration - also uses Tabs from jQuery-----*/
+
+/*=== Today Panel ===*/
+.ticker #panel_today{
+	padding-top: 0px;
+	text-align: center;
+	margin: auto;
+	overflow:hidden;
+	font-size: 28px;
+}
+.ticker #panel_today #t_date{
+	padding-top: 20px;
+	padding-left: 50px;
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.ticker #panel_today #t_city{
+	padding-top: 20px;
+	padding-left: 50px;
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.ticker #panel_today #t_img{
+	padding-top: 20px;
+	padding-left: 50px;
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.ticker #panel_today #t_temp{
+	font-size: 48px;
+	padding-top: 10px;
+	padding-left: 50px;
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.ticker #panel_today #t_desc{
+	padding-top: 20px;
+	padding-left: 50px;
+	margin: 0;
+	float: left;
+	display: inline;
+}
+
+.ticker #panel_today #t_navi{
+	margin: 0;
+	padding-top: 20px;
+	font-size: 12px;
+}
+
+/*=== Forecast Panel ===*/
+.ticker #panel_forecast{
+	text-align: center;	
+	margin: auto;
+}
+
+.ticker{
+	background: ;
+}
+
+.ticker #panel_forecast .forecast {
+	margin: auto;
+	width: 250px;
+	height: 80px;
+	float: left;
+	display: inline;
+}
+.ticker #panel_forecast .forecast .date{
+	font-size: 24px;
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.ticker #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.ticker #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.ticker #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}
+
+.ticker #panel_forecast #f_navi{
+	margin: 0;
+	font-size: 12px;
+}
+
+/*=== Location Panel ===*/
+.ticker #panel_location{
+	text-align: center;	
+	margin: auto;
+	padding-top: 10px;
+}
+
+.ticker #panel_location p{
+	text-align: center;	
+	margin: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.ticker #panel_location #l_city{
+	text-align: center;	
+	margin: auto;
+	font-size: 24px;
+	float: left;
+	padding-left: 100px;
+}
+
+.ticker #panel_location #l_zip{
+	text-align: center;	
+	margin: auto;
+	font-size: 12px;
+	float: left;
+	padding-left: 100px;
+}
+
+.ticker #panel_location #l_sub{
+	text-align: center;	
+	margin: auto;
+	float: left;
+	padding-left: 100px;
+}
+
+.ticker #panel_location #l_navi{
+	margin: 0;
+	padding-top: 20px;
+	font-size: 12px;
+}
+
+#zipCode{
+	color: #000000;
+}
+.zipCode_active{
+	background-color: #FFFF99;
+}
+.regular {
+	font-size: 14px;
+}

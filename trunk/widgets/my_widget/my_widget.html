@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Widget: Weather</title>
+
+                <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+		<link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+		<script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+		<script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+                <!-- PLATFORM JS & CSS FILES -->
+        <link type="text/css" rel="stylesheet" href="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.css"/>
+		<script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script> 
+		<script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsTabPanels.js"></script> <!-- UI Elements Container JS file -->
+		<script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.js"></script> <!-- UI Elements Library JS file -->
+		<script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsInputListItems.js"></script>
+		<script type="text/javascript" src="../../UIElementsLibrary/iCheckbox.js"></script> <!-- JQuery JS -->
+		<script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibrarySlidingCheckbox.js"></script>
+			 
+			 <!-- CSF Related JS Files -->
+		<script type="text/javascript" src="../../javascript/PLATFORM_ServicesPortal.js"></script> 
+		<script type="text/javascript" src="../../javascript/PLATFORM_Util.js"></script> 
+		<script type="text/javascript" src="../../javascript/PLATFORM_EpisodeEntry.js"></script> 
+
+		<!-- Standard Widget CSS & JS files -->
+		<link type="text/css" rel="stylesheet" href="../widget_style.css"/> <!-- Styling defined for each Widget Views -->
+		<script type="text/javascript" src="../widget_methods.js"></script> <!-- External Widget JS Library for this page -->
+		
+		<!-- My Widget CSS & JS Files -->
+        <link type="text/css" rel="stylesheet" href="./my_widget.css"/> <!-- Styling defined for Weather Widget -->
+		<script type="text/javascript" src="./my_widget.js"></script> <!-- External JS for this page -->
+
+	</head>
+	<body style='margin:0; padding:0'>
+	    <div id='view' class='regular'>
+			<div id='background'></div>
+	    	<div id='tabs' class='panel_container'><!-- Insert Panels Using JQuery --></div>			
+	    </div> 
+	</body>
+</html>

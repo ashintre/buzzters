@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Widget: Power</title>
+
+                <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+		<link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+		<script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+		<script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+		<!-- PLATFORM FILES! Make sure goes before standard widget JS files -->
+		<script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+
+		<!-- Standard Widget CSS & JS files -->
+		<link type="text/css" rel="stylesheet" href="../widget_style.css"/> <!-- Styling defined for each Widget Views -->
+		<script type="text/javascript" src="../widget_methods.js"></script> <!-- External Widget JS Library for this page -->
+		                
+                <!--CSS AND JS FILES RELATED TO WIDGET ITSELF-->
+                <link type="text/css" rel="stylesheet" href="./power.css"/> <!-- Styling defined for Power Management Widget -->
+		<script type="text/javascript" src="./power.js"></script> <!-- External JS for this page -->
+		
+
+	</head>
+	<body style='margin:0; padding:0'>
+	    <div id='view'>
+			<div id='background'></div>
+			<div id='transparency'></div>
+	    	<div id='tabs' class='panel_container'><!-- Insert Panels Using JQuery --></div>
+	    </div> 
+	</body>
+</html>

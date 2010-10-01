@@ -1,0 +1,93 @@
+/* blendo CSS */
+body { font: 80% Arial, Helvetica, Sans-Serif; }
+h1{ font-size: 1.6em; }
+h2{ font-size: 1.4em; }
+a { float: center; padding: 10px; }
+a img { border: 0; }
+/* a:hover { background: #66ccff; } */
+.container { margin: 0 auto; display: inline; }
+.container_header { font-size: 20px ; display: inline; }
+
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+	background-image: url('./picture.png');
+}
+
+.icon .title {
+  display: none;
+}
+
+/*-----Small View Configuration-----*/
+.small{
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	font-size: 20px;
+	border: 0;
+	top: 0;
+	left: 0;
+	text-align: center;
+	position: absolute;
+	background: white;	
+	overflow:hidden;
+	/* float: left; */
+	/* display: inline; */
+}
+
+/*-----Regular View Configuration-----*/
+.regular {
+	text-align: center;
+	margin: 0;
+	overflow:hidden;
+	font-size: 26px;
+	/*background: black;*/	
+	padding-top: 5px;
+	padding-bottom:5px;	
+	padding: 0;	
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker {
+	padding-top: 0px;
+	align: center;
+	text-align: left;
+	margin: auto;
+	background: white;	
+	overflow: hidden;
+	font-size: 20px;
+	display: inline;
+	padding: 30px;
+        height: 90px;
+	vertical-align: middle;
+}
+
+.ticker .title {
+	float: left;
+	overflow: hidden;
+	vertical-align: middle;
+	padding: 30px;
+	font-size: 30px;
+}
+
+.ticker .results {
+	overflow: hidden;
+	vertical-align: middle;
+	padding: 30px;
+}
+
+.ticker .photo {
+	float: left;
+	display: inline;
+	overflow: hidden;
+	padding: 30px;
+}
+
+.ticker .text {
+	float: left;
+	display: block;
+/*	overflow: hidden; */
+	overflow: auto; overflow-style: marquee-line; white-space: nowrap
+	vertical-align: middle;
+}
+

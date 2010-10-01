@@ -1,0 +1,208 @@
+
+var blendoSearchStr = "cnn,anderson%20cooper"; // DEFAULT
+var blendoSearchQuantity = 4; // DEFAULT
+var blendoServiceList = new Array("flickr", "googleNews", "picasa", "twitter"); // = all
+var blendoChangeTimer = 3000; // 3 seconds // DEFAULT
+var blendoUpdateTimer = 30000; // 30 seconds // DEFAULT
+
+function blendoSetSearchStr(searchStr) {
+  blendoSearchStr = searchStr;
+}
+
+function blendoSetUpdateTimer(timerValue) {
+  blendoUpdateTimer = timerValue;
+}
+
+function blendoSetChangeTimer(timerValue) {
+  blendoChangeTimer = timerValue;
+}
+
+function blendoSetSearchQuantity(searchQuantity) {
+  blendoSearchQuantity = searchQuantity;
+}
+
+function blendoSearch() {
+  for (var i=0; i < blendoServiceList.length; i++) {
+    switch(i)
+    {
+      case 0:
+        twitterSearch(blendoSearchStr, blendoSearchQuantity);
+        break;
+      case 1:
+        flickrSearch(blendoSearchStr, blendoSearchQuantity);
+        break;
+      case 2:
+        googleNewsSearch(blendoSearchStr, blendoSearchQuantity);
+        break;
+      case 3:
+        picasaSearch(blendoSearchStr, blendoSearchQuantity);
+        break;
+      default:
+        // something is broken
+    }
+  }
+
+  document.getElementById("content_container").innerHTML = '<H2>Welcome to Blendo</H2>';
+  setTimeout("blendoChangeContent(0)", blendoChangeTimer);
+  setTimeout("blendoSearch()", blendoUpdateTimer);
+}
+
+function httpGet(strURL, httpReq, callback) {
+  httpReq.open('GET', strURL, true);
+  httpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  httpReq.onreadystatechange = callback;
+  httpReq.send();
+}
+
+function blendoChangeContent(serviceIdx) {
+  switch(serviceIdx)
+  {
+  case 0:
+    twitterPrint();
+    break;
+  case 1:
+    flickrPrint();
+    break;
+  case 2:
+    googleNewsPrint();
+    break;
+  case 3:
+    picasaPrint();
+    break;
+  default:
+    // something is broken
+  }
+  var nextIdx = (serviceIdx+1)%4;
+  setTimeout("blendoChangeContent(" + nextIdx + ")", blendoChangeTimer);
+}
+
+// FLICKR
+
+var flickrResponse = "notSet";
+var flickrHttpReq = new XMLHttpRequest();
+
+function flickrSearch(searchStr, searchQuantity) {
+  var htmlstr = 'http://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&tag_mode=all&sort=date-taken-desc&api_key=57b9bb68bc0a319739d51a899ebb4fbc';
+  htmlstr += '&per_page=' + searchQuantity;
+  htmlstr += '&tags=' + searchStr;
+  httpGet(htmlstr, flickrHttpReq, flickrSearchCallback);
+}
+
+function flickrSearchCallback() {
+  if (flickrHttpReq.responseText != "")
+    flickrResponse = eval('(' + flickrHttpReq.responseText + ')'); 
+}
+
+function flickrPrint() { 
+  var htmlstr = "";
+  if (flickrResponse == "notSet") {
+    htmlstr = "<h2>Loading Flickr Photos...</h2>";
+  } else {
+    var results=flickrResponse.photos.photo;
+    htmlstr = "<h2>Flickr:</h2>";
+    for (var i=0; i < results.length; i++) {
+      var result = results[i];
+      var thumb_url = "http://farm" + result.farm + ".static.flickr.com/" + result.server + "/" + result.id + "_" + result.secret + "_" + "t.jpg";
+      var photo_url = "http://www.flickr.com/photos/" + result.owner + "/" + result.id;
+      htmlstr +=  '<a href="' + photo_url + '">' + '<img alt="' + result.title + '"src="' + thumb_url + '"/><br>' + '</a>';
+    }
+  }
+  document.getElementById("content_container").innerHTML = htmlstr;
+}
+
+// PICASA
+
+var picasaResponse = "notSet";
+var picasaHttpReq = new XMLHttpRequest();
+
+function picasaSearch(searchStr, searchQuantity) {
+  var htmlstr = 'http://picasaweb.google.com/data/feed/base/all?alt=json&fields=entry(media:group)';
+  htmlstr += '&q=' + searchStr;
+  htmlstr += '&max-results=' + searchQuantity;
+  httpGet(htmlstr, picasaHttpReq, picasaSearchCallback);
+}
+
+function picasaSearchCallback() {
+  if (picasaHttpReq.responseText != "")
+    picasaResponse = eval('(' + picasaHttpReq.responseText + ')'); 
+}
+
+function picasaPrint() {
+  var htmlstr = "";
+  if (picasaResponse == "notSet") {
+    htmlstr = "<h2>Loading Picasa Photos ...</h2>";
+  } else {
+    var results = picasaResponse.feed.entry;
+    htmlstr = "<h2>Picasa:</h2>";
+    for (var i=0; i < results.length; i++) {
+      var result = results[i].media$group;
+      var thumb_url = result.media$thumbnail[0].url;
+      var photo_url = result.media$content[0].url
+      htmlstr +=  '<a href="' + photo_url + '">' + '<img alt="' + result.media$title.$t + '"src="' + thumb_url + '"/><br>' + '</a>';
+    }
+  }
+  document.getElementById("content_container").innerHTML = htmlstr;
+}
+
+// GOOGLE NEWS
+
+var googleNewsResponse = "notSet";
+var googleNewsHttpReq = new XMLHttpRequest();
+
+function googleNewsSearch(searchStr, searchQuantity) {
+  var htmlstr='http://ajax.googleapis.com/ajax/services/search/news?v=1.0';
+  htmlstr += '&q=' + searchStr;
+  httpGet(htmlstr, googleNewsHttpReq, googleNewsSearchCallback);
+}
+
+function googleNewsSearchCallback() {
+  if (googleNewsHttpReq.responseText != "")
+    googleNewsResponse = eval('(' + googleNewsHttpReq.responseText + ')');
+}
+
+function googleNewsPrint() {
+  var htmlstr = "";
+  if (googleNewsResponse == "notSet") {
+    htmlstr = "<h2>Loading Google News ...</h2>";
+  } else {
+    var results=googleNewsResponse.responseData.results;
+    htmlstr = "<h2>Google News:</h2>";
+    for (var i=0; i < results.length; i++) {
+      var result = results[i];
+      htmlstr +=  '<a href="' + result.unescapedUrl + '">' + result.title + '<br><br>' + '</a>';
+    }
+  }
+  document.getElementById("content_container").innerHTML = htmlstr;
+}
+
+// TWITTER
+
+var twitterResponse = "notSet";
+var twitterHttpReq = new XMLHttpRequest();
+
+function twitterSearch(searchStr, searchQuantity) {
+  var htmlstr = 'http://search.twitter.com/search.json?lang=en&result_type=recent';
+  htmlstr += '&rpp=' + searchQuantity;
+  htmlstr += '&q=' + searchStr;
+  httpGet(htmlstr, twitterHttpReq, twitterSearchCallback);
+}
+
+function twitterSearchCallback() {
+  if (twitterHttpReq.responseText != "")
+    twitterResponse = eval('(' + twitterHttpReq.responseText + ')');
+}
+
+function twitterPrint() {
+  var htmlstr = "";
+  if (twitterResponse == "notSet") {
+    htmlstr = "<h2>Loading Tweets ...</h2>";
+  } else {
+    var results=twitterResponse.results;
+    htmlstr = "<h2>Twitter:</h2>";
+    for (var i=0; i < results.length; i++) {
+      var result = results[i];
+      htmlstr += '<br>' + result.from_user + ': ' + result.text + '<br>';
+    }
+  }
+  document.getElementById("content_container").innerHTML = htmlstr;
+}

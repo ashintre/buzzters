@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<appstore>
+	
+       
+          <widget>
+                <name>power</name>
+		<title>Power !</title>
+		<description> Shows Power Consumption </description>
+		<icon>power.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+        
+         
+           <widget>
+                <name>programprofile</name>
+		<title>Program Profile</title>
+		<description> Program Profile </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+            <widget>
+                <name>newsopinion</name>
+		<title>News Opinion</title>
+		<description> Shows the News Opinion </description>
+		<icon>newsopinion.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+    
+        
+        <widget>
+		<name>flipPanels</name>
+		<title>RSS Feeds</title>
+		<description> RSS Feeds !</description>
+		<icon>rss.png</icon>
+                <view>icon</view>
+	</widget>
+         <widget>
+		<name>gtvideo</name>
+		<title>GT Classes</title>
+		<description> Watch Class Videos</description>
+		<icon>gtvideo.png</icon>
+                <view>icon</view>
+	</widget>
+</appstore>

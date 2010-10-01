@@ -1,0 +1,130 @@
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+}
+
+.icon #background {
+	width: 100%;
+	height: 100%;
+    background-image: url('gtvideo.png');
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;
+}
+
+.ticker #panel_new{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_my_courses{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_gt_videos{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+/*-----Small View Configuration-----*/
+.small{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;	
+	color: white; /*font color*/
+}
+
+/*=== New Panel ===*/
+.small #panel_new{
+	text-align: center;	
+}
+
+.small #panel_new .new {
+	margin: auto;
+	width: 300px;
+	height: 40px;
+}
+
+/*-----Regular View Configuration - also uses Tabs from jQuery-----*/
+.regular{
+	font-size: 14px;
+	background: black;
+}
+
+/*-----  -----*/
+div.scroll_wrapper{
+	height: 375px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+ul.video_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.video_list li {
+	margin: 2px;
+	padding: 2px;
+}
+
+ul.video_list li div.video_wrapper {
+	width: 254px;
+	height: 80px;
+}
+
+ul.video_list li a.thumb_img {
+	display: block;
+	float: left;
+	width: 90px;
+	height: 64px;
+	line-height: 70px;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+
+ul.video_list li a.thumb_img img{
+	float: left;
+	position: absolute;
+	height: 64px;
+	width: auto;
+}
+
+ul.video_list li div.title{
+	float: left;
+	position: absolute;
+	left: 116px;
+	width: 132px;
+	overflow: hidden;
+	text-align: left;
+	line-height: 20px;
+	font-size: 16px;
+	overflow: hidden;
+}

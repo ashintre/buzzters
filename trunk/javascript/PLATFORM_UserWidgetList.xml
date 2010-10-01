@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Document   : widgetList.xml
+    Created on : May 31, 2010, 9:22 PM
+    Author     : root
+    Description:
+        Purpose of the document follows.
+-->
+<userList> 
+<user>
+    <macaddress>00:02:9b:4b:ea:4c</macaddress>
+    <widgetList>
+
+          <widget>
+                <name>scrollPanels</name>
+		<title>Scroll Panel Widget!</title>
+		<description>Scroll Panel Widget</description>
+		<icon></icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+           <widget>
+                <name>power</name>
+                <title>Power !</title>
+                <description> Shows Power Consumption </description>
+                <icon>../power/power.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            <widget>
+		<name>weather</name>
+		<title>Weather</title>
+		<description> Shows the weather of a given zipcode </description>
+		<icon>weather.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+
+	<widget>
+           <name>keyNavigationWidget</name>
+		<title>Key Navigation example</title>
+		<description> Example of key navigation </description>
+		<icon>keyNavigationWidget.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+
+    </widget>
+           
+		
+          
+          <widget>
+
+                <name>flipPanels</name>
+		<title>RSS Widget!</title>
+		<description>Flip Panel Widget</description>
+		<icon>rss.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+		
+      <widget>
+                <name>newsopinion</name>
+		<title>News Opinion</title>
+		<description> Shows the News Opinion </description>
+		<icon>newsopinion.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+               
+    	
+          <widget>
+		<name>weather</name>
+		<title>Weather</title>
+		<description> Shows the weather of a given zipcode </description>
+		<icon>weather.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            <!-- 
+             <widget>
+                <name>SimpleBlend</name>
+		<title>Simple Blend</title>
+		<description> Simple Blend </description>
+		<icon></icon>
+                <view>icon</view>
+                <selected>true</selected>
+    </widget>    	
+    
+    <widget>
+                <name>programprofile</name>
+		<title>Program Profile</title>
+		<description> Shows the Current program profile </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+      </widget>
+                
+    
+          <widget>
+                <name>gtvideo</name>
+		<title>GT Videos!</title>
+		<description> Watch Course Videos </description>
+		<icon>gtvideo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            
+               <widget>
+                <name>blendo</name>
+		<title>BlendO</title>
+		<description> Blends </description>
+		<icon>blendo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            
+                          
+           
+          <widget>
+                <name>scrollPanels</name>
+		<title>Scroll Panel Widget!</title>
+		<description>Scroll Panel Widget</description>
+		<icon></icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+         
+                       
+             <widget>
+                <name>vimeo</name>
+		<title>Videos from Other Channels</title>
+		<description> Other videos </description>
+		<icon>vimeo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+   -->
+</widgetList>
+
+<preferences>
+	<zipcode>20032</zipcode>
+	<email>nadu@gatech.edu</email>
+</preferences>
+
+</user>
+
+<user>
+    <macaddress>00:02:9b:4b:e9:e5</macaddress>
+    <widgetList>
+            <widget>
+		<name>weather</name>
+		<title>Weather</title>
+		<description> Shows the weather of a given zipcode </description>
+		<icon>weather.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+             <widget>
+                <name>programprofile</name>
+		<title>Program Profile</title>
+		<description> Shows the Current program profile </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+          
+          <widget>
+                <name>example</name>
+		<title>Example Widget!</title>
+		<description> Watch an Example Widget </description>
+		<icon></icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            <widget>
+                <name>blendo</name>
+		<title>BlendO</title>
+		<description> Blends </description>
+		<icon>blendo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+             
+          <!--
+          <widget>
+                <name>gtvideo</name>
+		<title>GT Videos!</title>
+		<description> Watch Course Videos </description>
+		<icon>gtvideo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+            <widget>
+                <name>skipclass</name>
+		<title>Skip Class </title>
+		<description> Get updates for class timings </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+         <widget>
+                <name>power</name>
+		<title>Power!</title>
+		<description> Shows the Power Consumption </description>
+		<icon>power.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            <widget>
+                <name>blendo</name>
+		<title>BlendO</title>
+		<description> Blends </description>
+		<icon>blendo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+             <widget>
+                <name>vimeo</name>
+		<title>Videos from Other Channels</title>
+		<description> Other videos </description>
+		<icon>vimeo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+             <widget>
+                <name>gtvideo</name>
+		<title>GT Videos!</title>
+		<description> Watch Course Videos </description>
+		<icon>gtvideo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+             
+
+            -->
+   <widget>
+<name>power</name>
+<title>Power !</title>
+<description> Shows Power Consumption </description>
+<icon>../power/power.png</icon>
+<view>icon</view>
+<selected>true</selected>
+</widget>
+</widgetList>
+</user>
+
+<user>
+   
+    <macaddress>00:02:9b:47:0a:05</macaddress>
+    <widgetList>
+            <widget>
+                    <name>weather</name>
+                    <title>Weather</title>
+                    <description> Shows the weather of a given zipcode </description>
+                    <icon>weather.png</icon>
+                    <view>icon</view>
+                     <selected>true</selected>
+            </widget>
+            <widget>
+                <name>newsopinion</name>
+		<title>News Opinion</title>
+		<description> Shows the News Opinion </description>
+		<icon>newsopinion.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+            <widget>
+                <name>gtvideo</name>
+		<title>GT Videos!</title>
+		<description> Watch Course Videos </description>
+		<icon>gtvideo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+            
+            <!--
+            <widget>
+                <name>power</name>
+		<title>Power!</title>
+		<description> Shows the Power Consumption </description>
+		<icon>power.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+            <widget>
+                <name>vimeo</name>
+		<title>Videos from Other Channels</title>
+		<description> Other videos </description>
+		<icon>vimeo.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+           <widget>
+                <name>skipclass</name>
+		<title>Skip Class </title>
+		<description> Get updates for class timings </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget> -->
+ </widgetList>
+</user>
+
+
+<user>
+    <macaddress>00:02:9b:47:09:eb</macaddress>
+    <widgetList>
+           <widget>
+                    <name>weather</name>
+                    <title>Weather</title>
+                    <description> Shows the weather of a given zipcode </description>
+                    <icon>weather.png</icon>
+                    <view>icon</view>
+                     <selected>true</selected>
+            </widget>
+            
+            <widget>
+                <name>power</name>
+		<title>Power!</title>
+		<description> Shows the Power Consumption </description>
+		<icon>power.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+           <widget>
+                <name>skipclass</name>
+		<title>Skip Class </title>
+		<description> Get updates for class timings </description>
+		<icon>programprofile.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+
+            <widget>
+                <name>newsopinion</name>
+		<title>News Opinion</title>
+		<description> Shows the News Opinion </description>
+		<icon>newsopinion.png</icon>
+                <view>icon</view>
+                <selected>true</selected>
+            </widget>
+     
+
+     </widgetList>
+
+</user>
+
+</userList>

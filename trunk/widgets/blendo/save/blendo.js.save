@@ -1,0 +1,103 @@
+
+blendoSearchStr="cnn,anderson%20cooper";
+blendoSearchQuantity=4;
+
+function blendoPrint() {
+  blendoPrintDiv("picasa");
+  blendoPrintDiv("twitter");
+  blendoPrintDiv("flickr");
+  blendoPrintDiv("googleNews");
+}
+
+function blendoPrintDiv(service) {
+  var htmlstr = '<div class="container">';
+  htmlstr += '<h2>' + service + ':</h2>';
+  htmlstr += '<script type="text/javascript" language="javascript">' + service + 'Search(blendoSearchStr,blendoSearchQuantity);</script>';
+  htmlstr += '</div> <br> <br>';
+  document.writeln(htmlstr);
+}
+
+// FLICKR
+function flickrSearch(searchStr, searchQuantity) {
+  var htmlstr = '<script type="text/javascript" language="javascript" src="http://api.flickr.com/services/rest/?format=json&amp;method=flickr.photos.search&amp;tag_mode=all&amp;sort=date-taken-desc&amp;api_key=57b9bb68bc0a319739d51a899ebb4fbc';
+  htmlstr += '&amp;per_page=' + searchQuantity + '&amp;';
+  htmlstr += '&amp;tags=' + searchStr;
+  htmlstr += '"></script>';
+  document.writeln(htmlstr);
+}
+
+function jsonFlickrApi(response) {
+  if (response.stat != "ok"){
+    document.writeln('If this executes, something broke!');
+    return;
+  }
+ 
+  var htmlstr = "";
+  var results=response.photos.photo;
+  for (var i=0; i < results.length; i++) {
+    var result = results[i];
+    var thumb_url = "http://farm" + result.farm + ".static.flickr.com/" + result.server + "/" + result.id + "_" + result.secret + "_" + "t.jpg";
+    var photo_url = "http://www.flickr.com/photos/" + result.owner + "/" + result.id;
+    htmlstr +=  '<a href="' + photo_url + '">' + '<img alt="' + result.title + '"src="' + thumb_url + '"/><br>' + '</a>';
+  }
+  document.writeln(htmlstr);
+}
+
+// PICASA
+
+function picasaSearch(searchStr, searchQuantity) {
+  var htmlstr = '<script type="text/javascript" language="javascript" src="http://picasaweb.google.com/data/feed/base/all?alt=json-in-script&callback=picasaSearchCallback&fields=entry(media:group)';
+  htmlstr += '&q=' + searchStr;
+  htmlstr += '&max-results=' + searchQuantity;
+  htmlstr += '"></script>';
+  document.writeln(htmlstr);
+}
+
+function picasaSearchCallback(response) {
+  var htmlstr = "";
+  var results = response.feed.entry;
+  for (var i=0; i < results.length; i++) {
+   var result = results[i].media$group;
+   var thumb_url = result.media$thumbnail[0].url;
+   var photo_url = result.media$content[0].url
+   htmlstr +=  '<a href="' + photo_url + '">' + '<img alt="' + result.media$title.$t + '"src="' + thumb_url + '"/><br>' + '</a>';
+  }
+  document.writeln(htmlstr);
+}
+
+// GOOGLE NEWS
+function googleNewsSearch(searchStr, searchQuantity) {
+  var htmlstr='<script type="text/javascript" language="javascript" src="http://ajax.googleapis.com/ajax/services/search/news?v=1.0&callback=googleNewsSearchCallback';
+  htmlstr += '&q=' + searchStr;
+  htmlstr += '"></script>';
+  document.writeln(htmlstr);
+}
+
+function googleNewsSearchCallback(response) {
+  var htmlstr = "";
+  var results=response.responseData.results;
+  for (var i=0; i < results.length; i++) {
+    var result = results[i];
+    htmlstr +=  '<a href="' + result.unescapedUrl + '">' + result.title + '<br>' + '</a>';
+  }
+  document.writeln(htmlstr);
+}
+
+// TWITTER
+function twitterSearch(searchStr, searchQuantity) {
+  var htmlstr = '<script type="text/javascript" language="javascript" src="http://search.twitter.com/search.json?callback=twitterSearchCallback&lang=en&result_type=recent';
+  htmlstr += '&rpp=' + searchQuantity;
+  htmlstr += '&q=' + searchStr;
+  htmlstr += '"></script>';
+  document.writeln(htmlstr);
+}
+
+function twitterSearchCallback(response) {
+  var htmlstr = "";
+  var results=response.results;
+  for (var i=0; i < results.length; i++) {
+    var result = results[i];
+    htmlstr += '<br>' + result.from_user + ': ' + result.text + '<br>';
+  }
+  document.writeln(htmlstr);
+}

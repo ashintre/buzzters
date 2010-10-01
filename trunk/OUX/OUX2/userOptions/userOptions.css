@@ -1,0 +1,102 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: black;
+	/*background-image: url('./userOptions-bg.png');*/
+}
+
+/* TAB RELATED STYLING */
+.ui-widget-content{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+
+.ui-tabs {
+	border: 1px solid white;
+	width: 1280px;
+	height:720px;
+	position:relative;
+}
+
+.ui-tabs-nav {
+	margin: 0;
+	border: 0;
+	text-align: center;
+	background: none;	
+}
+
+.ui-tabs .ui-tabs-nav li {
+	width: 240px;
+	height: 90px;
+	display: inline;
+	padding: 0 30px 0 100px;
+	margin: 5px 25px 0 25px;
+}
+
+.ui-corner-all {
+	-moz-border-radius:0px;
+}
+
+.ui-corner-top {
+	-moz-border-radius:0px;
+}
+
+.tabsItem a {
+	float: center;
+	font-size: 48px;
+}
+
+/* WIDGET PANEL RELATED STYLING */
+
+#widget_panel{
+	padding: 30px 50px 30px 50px;
+}
+
+.widgets_container{
+	margin: 0 20px 0 20px;
+	padding:  10px 15px 10px 15px;
+	width: 320px;
+	height: 520px;
+	background: grey;
+	float:left;
+	position: relative;
+}
+
+.widgets_title{
+	text-align: center;
+}
+
+.widgets_content{
+}
+
+/* THEME PANEL RELATED STYLING */
+
+#theme_panel{
+	padding: 30px 50px 30px 50px;
+}
+
+.themes_container{
+	margin: 0 20px 0 20px;
+	padding:  10px 15px 10px 15px;
+	background: grey;
+	float:left;
+	position: relative;
+}
+
+#themes_select{
+	width: 640px;
+	height: 520px;
+}
+
+#themes_preview{
+	width: 320px;
+	height: 520px;
+}
+/* SETTING PANEL RELATED STYLING */
+
+#setting_panel{
+	padding: 30px 50px 30px 50px;
+}

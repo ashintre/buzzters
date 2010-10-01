@@ -1,0 +1,299 @@
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+}
+
+.icon #background {
+	width: 100%;
+	height: 100%;
+	background-image: url('power.png');
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;
+}
+
+.ticker #panel_day{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_day .day {
+	margin: auto;
+	width: 1280;
+	height: 90px;
+}
+
+.ticker #panel_day .day .title{
+	font-size: 20px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 150px;
+	height: 80px;
+        text-align: center;
+}
+.ticker #panel_day .day .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+
+.ticker #panel_week{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_week .week {
+	margin: auto;
+	width: 1280;
+	height: 90px;
+}
+
+.ticker #panel_week .week .title{
+	font-size: 20px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 150px;
+	height: 80px;
+        text-align: center;
+}
+.ticker #panel_week .week .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+
+.ticker #panel_month{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_month .month {
+	margin: auto;
+	width: 1280;
+	height: 90px;
+}
+
+.ticker #panel_month .month .title{
+	font-size: 20px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 150px;
+	height: 80px;
+        text-align: center;
+}
+.ticker #panel_month .month .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+
+/*-----Small View Configuration-----*/
+.small{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;	
+	color: white; /*font color*/
+}
+
+/*=== Day Panel ===*/
+.small #panel_day{
+	text-align: center;	
+}
+.small #panel_day .day {
+	margin: auto;
+	width: 300px;
+	height: 180px;
+}
+.small #panel_day .day .title{
+	font-size: 20px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_day .day .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_day .day p{
+	padding: 0;
+	margin: 0;
+}
+
+/*=== Week Panel ===*/
+.small #panel_week{
+	text-align: center;	
+}
+.small #panel_week .week {
+	margin: auto;
+	width: 300px;
+	height: 180px;
+}
+.small #panel_week .week .title{
+	font-size: 20px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_week .week .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_week .week p{
+	padding: 0;
+	margin: 0;
+}
+
+/*=== Month Panel ===*/
+.small #panel_month{
+	text-align: center;	
+}
+.small #panel_month .month {
+	margin: auto;
+	width: 300px;
+	height: 180px;
+}
+.small #panel_month .month .title{
+	font-size: 20px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_month .month .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.small #panel_month .month p{
+	padding: 0;
+	margin: 0;
+}
+
+
+/*-----Regular View Configuration - also uses Tabs from jQuery-----*/
+.regular{
+	font-size: 14px;
+}
+
+/*=== Day Panel ===*/
+.regular #panel_day{
+	text-align: center;
+	overflow:hidden;
+}
+.regular{
+	background: black;
+}
+.regular #panel_day .day {
+	margin: auto;
+	width: 300px;
+	height: 90px;
+}
+.regular #panel_day .day .title{
+	font-size: 24px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.regular #panel_day .day .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.regular #panel_day .day p{
+	padding: 0;
+	margin: 0;
+}
+
+/*=== Week Panel ===*/
+.regular #panel_week{
+	text-align: center;	
+}
+
+.regular{
+	background: black;
+}
+
+.regular #panel_week .week {
+	margin: auto;
+	width: 300px;
+	height: 90px;
+}
+.regular #panel_week .week .title{
+	font-size: 24px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.regular #panel_week .week .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.regular #panel_week .week p{
+	padding: 0;
+	margin: 0;
+}
+
+/*=== Month Panel ===*/
+.regular #panel_month{
+	text-align: center;	
+}
+
+.regular{
+	background: black;
+}
+
+.regular #panel_month .month {
+	margin: auto;
+	width: 300px;
+	height: 90px;
+}
+.regular #panel_month .month .title{
+	font-size: 24px;
+	padding: 5px;
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+.regular #panel_month .month .pic{
+	top: 0px;
+	float: left;
+	width: 250px;
+}
+
+.regular #panel_month p{
+	margin: 0;
+	padding: 0;
+}
+
+

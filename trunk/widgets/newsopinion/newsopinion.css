@@ -1,0 +1,250 @@
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+	font-size: 11px;
+	background: transparent;
+}
+
+.icon #iconimage {
+	width: 90px;
+	height: 90px;
+	background-image: url('newsopinion.png');
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	font-size: 15px;
+	background: black;
+	color: white;
+}
+
+.ticker #partychoice {font-size:18px;}
+.ticker #instructionsparty {float:left; display:inline; margin-top:20px; margin-right:150px;}
+.ticker #radio {font-size:.65em; width:340px; float:left; display:inline; margin-top:15px; padding:3px; text-align:center;}
+.ticker #currsubmitparty {float:left; display:inline; margin-top:10px;}
+
+.ticker #sliderfocus {width:420px;}
+.ticker .ui-slider { position: relative; text-align: left; width:370px;}
+.ticker .ui-slider-horizontal { height: .8em; }
+.ticker .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+
+.ticker table.optable {width:416px}
+.ticker td.tdleft {width:120px}
+.ticker td.tdbetween {width:38px}
+
+.ticker #currquestion {float:left; width:400px; padding-top:17px; padding-right:20px;}
+.ticker #sliderfocus {float:left; display:inline;}
+.ticker #currsubmit {float:right; display:inline; padding-top:13px; padding-bottom:10px;}
+
+/*.ticker #panel_today{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_forecast{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}
+
+.ticker #panel_location{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;	
+}*/
+
+/*-----Small View Configuration-----*/
+.small{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	top: 0;
+	left: 0;
+	position: absolute;
+	font-size: 15px;
+	background: black;	
+	color: white; /*font color*/
+}
+
+.small #partychoice {font-size:18px;}
+.small #radio {font-size:.6em; width:290px; padding:3px; text-align:center;}
+.small #currsubmitparty {padding-top:20px;}
+
+.small #sliderfocus {width:298px;}
+.small .ui-slider { position: relative; text-align: left; width:265px;}
+.small .ui-slider-horizontal { height: .8em; }
+.small .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+
+.small table.optable {width:290px}
+.small td.tdleft {width:50px}
+.small td.tdbetween {width:45px}
+
+.small #currsubmit {padding-top:8px; padding-bottom:10px;}
+
+/*=== Forecast Panel ===*/
+/*.small #panel_forecast{
+	text-align: center;	
+}
+
+.small #panel_forecast .forecast {
+	margin: auto;
+	width: 300px;
+	height: 40px;
+}
+.small #panel_forecast .forecast .date{
+	font-size: 24px;
+	top: 0px;
+	float: left;
+	width: 80px;
+}
+
+.small #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 80px;
+}
+
+.small #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.small #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}*/
+
+/*-----Regular View Configuration - also uses Tabs from jQuery-----*/
+.regular{
+	font-size: 18px;
+	background: black;
+	color: white;
+}
+
+.regular #radio {font-size:.6em; width:290px; padding:3px; text-align:center;}
+.regular #currsubmitparty {padding-top:20px;}
+
+.regular #sliderfocus {width:298px;}
+.regular .ui-slider { position: relative; text-align: left; width:265px;}
+.regular .ui-slider-horizontal { height: .7em; }
+.regular .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.1em; height: 1.1em; cursor: default; }
+
+.regular table.optable {width:290px}
+.regular td.tdleft {width:50px}
+.regular td.tdbetween {width:45px}
+
+.regular #currsubmit {padding-top:30px; padding-bottom:10px;}
+
+/*
+/*=== Today Panel ===
+.regular #panel_today{
+	text-align: center;
+	overflow:hidden;
+}
+.regular #panel_today #t_date{
+	display: block;
+	margin: 0;
+	padding-top: 20px;
+	font-size: 26px;
+/*	border: 1px solid white;
+}
+
+.regular #panel_today #t_city{
+	display: block;
+	margin: 0;
+	padding: 0;	
+	font-size: 20px;
+}
+
+.regular #panel_today #t_temp{
+	display: block;
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom:5px;	
+	font-size: 80px;
+}
+
+.regular #panel_today #t_desc{
+	display: block;
+	margin: 0;
+	padding: 0;	
+	font-size: 26px;
+}
+
+/*=== Forecast Panel ===
+.regular #panel_forecast{
+	text-align: center;	
+}
+
+.regular #panel_forecast .forecast {
+	margin: auto;
+	width: 250px;
+	height: 80px;
+}
+.regular #panel_forecast .forecast .date{
+	font-size: 24px;
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.regular #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.regular #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.regular #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}
+
+/*=== Location Panel ===
+.regular #panel_location{
+	text-align: center;	
+}
+
+.regular #panel_location p{
+	margin: 0;
+	padding: 0;
+}
+
+.regular #panel_location #l_city{
+	padding-top: 100px;
+	font-size: 24px;
+}
+
+.regular #panel_location #l_zip{
+	padding-top: 20px;	
+	font-size: 12px;
+}
+
+.regular #panel_location #l_sub{
+	padding-top: 20px;	
+}
+*/

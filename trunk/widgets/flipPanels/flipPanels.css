@@ -1,0 +1,111 @@
+/*-----Icon View Configuration-----*/
+.icon {
+	position: absolute;
+	text-align: center;
+	background: yellow;
+}
+
+.icon #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+.icon #panel_container p {
+        font-size: 8px;
+}
+
+/*-----Regular View Configuration-----*/
+.regular {
+	position: absolute;
+	text-align: center;	
+	background: black;
+	color: white;
+}
+
+.regular #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+.regular #panel_container p {
+        font-size: 24px;
+}
+
+/*-----Ticker View Configuration-----*/
+.ticker {
+	position: absolute;
+	text-align: center;	
+	background: orange;
+}
+
+.ticker #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+.ticker #panel_container p {
+        font-size: 12px;
+}
+
+/*-----Small View Configuration-----*/
+.small {
+	position: absolute;
+	text-align: center;	
+	background: green;
+}
+
+.small #panel_container {
+	width: 100%;
+	height: 100%;
+}
+
+.small #panel_container p {
+        font-size: 16px;
+}
+.ticker #panel_forecast{
+	text-align: center;	
+	margin: auto;
+}
+
+.ticker{
+	background: ;
+}
+
+.ticker #panel_forecast .forecast {
+	margin: auto;
+	width: 250px;
+	height: 80px;
+	float: left;
+	display: inline;
+}
+.ticker #panel_forecast .forecast .date{
+	font-size: 24px;
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.ticker #panel_forecast .forecast .pic{
+	top: 0px;
+	float: left;
+	width: 50px;
+}
+
+.ticker #panel_forecast .forecast .temp{
+	font-size: 16px;
+	width:140px;
+	top: 0px;
+	float: left;
+}
+
+.ticker #panel_forecast .forecast p{
+	padding: 0;
+	margin: 0;
+}
+
+.ticker #panel_forecast #f_navi{
+	margin: 0;
+	font-size: 12px;
+}
+
+

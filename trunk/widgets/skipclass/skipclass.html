@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Skip to Class</title>
+
+
+    <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+    <link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+    <script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+    <script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+    <!-- PLATFORM FILES -->
+    <!-- <script type="text/javascript" src="../../javascript/PLATFORM_Configuration.js"></script>  Proxy config -->
+    <script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+    <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsTabPanels.js"></script><!-- External JS for this page -->
+    <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.js"></script>
+
+    <!-- Standard Widget CSS & JS files -->
+    <link type="text/css" rel="stylesheet" href="../widget_style.css"/> <!-- Styling defined for each Widget Views -->
+    <script type="text/javascript" src="../widget_methods.js"></script> <!-- External Widget JS Library for this page -->
+   
+
+    <!-- Current Widget CSS & JS Files -->
+    <script type="text/javascript" src="./skipclass.js"></script>
+    <link type="text/css" rel="stylesheet" href="./skipclass.css" />
+    <link type="text/css" rel="stylesheet" href="./../widget.css" />
+</head>
+
+<body style='margin: 0; padding: 0'>
+	<div id='view'>
+		
+		<div id='rView'>
+			<p id='n_class'></p>
+			<p id='n_building'></p>
+			<p id='walk_status'></p>
+			<p id='red_status'></p>
+			<p id='blue_status'></p>
+			<p id='trolley_status'></p>
+			<p id='leave_status'></p>
+
+<!--			<input type="text", id="waitValue" onChange="main()" size="6"/> <span style="font-size:16px" >min</span>-->
+<!--			<input type='button' onClick="main()" value="Set Wait"/>-->
+
+		</div>
+		
+		<div class='icon' id='iView'>
+			<p id='icon_text'></p>
+		</div>
+		
+		<div class="small" id='sView'>
+			<table >
+				<tr>
+					<td id="class_row" colspan="2">PHYS2211 in Howey</td>
+				</tr>
+				<tr>
+					<td>Path</td>
+					<td>ETA time</td>
+				</tr>
+				<tr id="walk_row">
+					<td>All Walk</td>
+					<td id="walk_eta">0</td>
+				</tr>
+				<tr id="red_row">
+					<td>Red</td>
+					<td id="red_eta">0</td>
+				</tr>
+				<tr id="blue_row">
+					<td>Blue</td>
+					<td id="blue_eta">0</td>
+				</tr>
+				<tr id="trolley_row">
+					<td>Trolley</td>
+					<td id="trolley_eta">0</td>
+				</tr>
+				<tr>
+					<td colspan="2"><p class="leave_s"></p></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id = 'tView'>
+			<marquee scrollamount='10'><p id='ticker_text'></p></marquee>
+		</div>
+	</div>
+</body>
+
+</html>

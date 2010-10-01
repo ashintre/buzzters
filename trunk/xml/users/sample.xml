@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<user>
+	<widgetList> <!-- List of Widgets -->
+		<widget> 
+			<name>weather</name> <!-- Name of Widget -->
+			<title>Weather</title> <!-- Title to be displayed for Widget -->
+			<description>Shows the weather of a given zipcode</description> 
+			<icon>weather.png</icon> <!-- Image for Icon view -->
+		        <selected>true</selected> <!-- Determine if Widget is selected for use -->
+		        <version>1</version> <!-- Version of Widget -->	        
+		</widget>
+		<widget> 
+			<name>SimpleBlend</name> <!-- Name of Widget -->
+			<title>Simply Blends</title> <!-- Title to be displayed for Widget -->
+			<description></description> 
+			<icon></icon> <!-- Image for Icon view -->
+		        <selected>true</selected> <!-- Determine if Widget is selected for use -->
+		        <version>1</version> <!-- Version of Widget -->	        
+		</widget>
+		<widget> 
+			<name>flipPanels</name> <!-- Name of Widget -->
+			<title>GT RSS Feeds</title> <!-- Title to be displayed for Widget -->
+			<description>Display GT RSS News Feeds</description> 
+			<icon></icon> <!-- Image for Icon view -->
+		        <selected>true</selected> <!-- Determine if Widget is selected for use -->
+		        <version>1</version> <!-- Version of Widget -->	        
+		</widget>
+</widgetList>
+    	
+		    	
+	<globalvalues> <!-- Global values -->
+		<zipcode>30318</zipcode> <!-- User Location -->
+		<email>matt@gatech.edu</email> <!-- User Email (optional) -->
+	</globalvalues>
+</user>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+            <title>iPoll TV Widget</title>
+
+                <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+                <link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-darkness/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+                <script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-1.4.2.min.js"></script>
+                <script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-darkness/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+                <!-- PLATFORM FILES -->
+                <!-- <script type="text/javascript" src="../../javascript/PLATFORM_Configuration.js"></script> Proxy config -->
+                <script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+                <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsTabPanels.js"></script><!-- External JS for this page -->
+                <script type="text/javascript" src="../../UIElementsLibrary/PLATFORM_UIElementsLibrary.js"></script>
+
+                <!-- Standard Widget CSS & JS files -->
+                <link type="text/css" rel="stylesheet" href="../widget_style.css"/> <!-- Styling defined for each Widget Views -->
+                <script type="text/javascript" src="../widget_methods.js"></script> <!-- External Widget JS Library for this page -->
+                
+                <!-- Current Widget CSS & JS Files -->
+                <link type="text/css" rel="stylesheet" href="./newsopinion.css"/> <!-- Styling defined for Weather Widget -->
+                <script type="text/javascript" src="./newsopinion.js"></script> <!-- External JS for this page -->
+
+
+                <link type="text/css" href="./KinoTVSubmission.css" rel="stylesheet" />
+                <script src="./actions.js" type="text/javascript"></script>
+
+           <!-- <script src="../../keyHandlerForWidgetDevelopers.js" type="text/javascript"></script>-->
+
+
+
+
+            <script type="text/javascript">
+                    $(function(){
+                            //Buttons
+                            $("button, input:submit", ".buttondiv").button();
+
+                            $("#radio").buttonset();
+
+                            loadSliders();
+
+                            //hover states on the static widgets
+                            $('#dialog_link, ul#icons li').hover(
+                                    function() { $(this).addClass('ui-state-hover'); },
+                                    function() { $(this).removeClass('ui-state-hover'); }
+                            );
+
+                    });
+            </script>
+            <style type="text/css">
+                    /*demo page css*/
+                    body{font-family:Arial, Helvetica, sans-serif;}
+                    #dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+                    #dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+            </style>
+	</head>
+	<body style='margin:0; padding:0'>
+    <div id='view'>
+        <div id="iconimage"></div>
+	    <div class="content">
+
+        
+        	<form id="theform">
+            <div id="partychoice">
+                <div id="instructionsparty"><span class="question">Choose your party affiliation.</span><br /><br /></div>
+                
+                <div id="radio">
+                    <input type="radio" id="radio1" name="radio" value="democrat" checked="checked" direction='horizontal'/><label id = 'label_r1' class='navigationClass horizontal' for="radio1">Democrat</label>
+                    <input type="radio" id="radio2" name="radio" value="republican" direction='horizontal'/><label id = 'label_r2' class='navigationClass horizontal' for="radio2">Republican</label>
+                    <input type="radio" id="radio3" name="radio" value="independent"  direction='horizontal'/><label id = 'label_r3' class='navigationClass horizontal' for="radio3">Independent</label>
+                    <br>
+                </div>
+                <div id="currsubmitparty">
+                    <table width="290"><tr><td align="left">
+                    </td>
+                    <td align="right">
+                    <span class="buttondiv" id ="buttondiv">
+                    <!-- <input value="Submit" type="submit" id="submitbuttonparty"> -->
+                    </span>
+                    </td></tr></table>
+                </div>
+			</div>
+ 
+            <span class="question" id="instructions">Use the arrow keys to select your opinion about the statement below.
+            <br /><br /><br></span>
+			<!--
+            <input type="hidden" name="opinions_topic_id" value="0">
+            <input type="hidden" name="opinions_value" value="0">
+            <input type="hidden" name="opinion02" value="0">
+            <input type="hidden" name="opinion03" value="0">
+            <input type="hidden" name="opinion04" value="0">
+            <input type="hidden" name="opinion05" value="0">
+            <input type="hidden" name="opinion06" value="0">
+            <input type="hidden" name="opinion07" value="0">-->
+            <div id="sliders">
+                <div id="currquestion"></div>
+                <div id="sliderfocus" class="navigationClass">
+                	<br>
+                    <div id="slider_regular"></div>
+                    <table border="0" cellpadding="0" align="center" class="optable">
+                      <tr>
+                        <td align="left" class="tdleft">Strongly Disagree</td>
+                        <td align="left" class="tdbetween"></td>
+                        <td align="center" width="100px" class="tdcenter">Neutral</td>
+                        <td align="left" class="tdbetween"></td>
+                        <td align="right" class="tdleft">Strongly Agree</td>
+                      </tr>
+                    </table>
+                </div>
+                <div id="currsubmit">
+                    <table width="290"><tr><td align="left">
+                    Your opinion:<br><b><span id="currOpinion_reg">Neutral</span></b>
+                    </td>
+                    <td align="right">
+                    <span class="buttondiv">
+                    <input value="Submit" type="submit" id="submitbutton" class='navigationClass'>
+                    </span>
+                    </td></tr></table>
+                </div>
+            </div>
+                            
+<!--			<div id="tickersliders">
+                <table width="1280px" style="padding:0px 20px 5px 20px;"><tr><td align="left">
+                Health reform should include a public option insurance plan.
+                </td>
+                <td align="center">
+               		<div id="sliderfocus_ticker">
+                    	<div style="height:10px"></div>
+                        <div id="slider_ticker"></div>
+                        <table width="500" border="0" cellpadding="0">
+                        <tr>
+                        <td align="left" width="100px">Strongly Disagree</td>
+                        <td align="left" width="100px"></td>
+                        <td align="center" width="100px">Neutral</td>
+                        <td align="left" width="100px"></td>
+                        <td align="right" width="100px">Strongly Agree</td>
+                        </tr>
+                        </table>
+                    </div>
+                </td>
+                <td align="right">
+                    <table width="200"><tr><td align="left">
+                    Your opinion:<br><b><span id="currOpinion_tick">Neutral</span></b>
+                    </td>
+                    <td align="right">
+                    <span class="buttondiv">
+                    <input value="Submit" type="submit" id="submitbutton_ticker">
+                    </span>
+                    </td></tr></table>
+                </td></tr></table>
+			</div>-->
+            
+    <!--        Your zip code: <input type="text" name="zipcode"/>
+            <br /><br />-->
+           
+            </form>
+        </div>
+    </div>
+    </body>
+</html>

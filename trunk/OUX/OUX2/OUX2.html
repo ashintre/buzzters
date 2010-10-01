@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="author" content="GT-RNOC" />
+        <title>Motorola IPTV Widget Platform - OUX2</title>
+
+            <!-- JQUERY FILES! Make sure jquery css goes before jquery ui JS; JS files before all other css/JS files -->
+            <link class="jquery" id="customCSS" type="text/css" rel="stylesheet" href="./../../jquery/ui-earth/css/custom-theme/jquery-ui-1.8.2.custom.css"/>
+            <script class="jquery" id="minJS" type="text/javascript" src="./../../jquery/ui-earth/js/jquery-1.4.2.min.js"></script>
+            <script class="jquery" id="uiMinJS" type="text/javascript" src="./../../jquery/ui-earth/js/jquery-ui-1.8.2.custom.min.js"></script>
+
+            <!-- External JS Related to PLATFORM -->
+            <script type="text/javascript" src="../../javascript/Platform_DebugMsgViewer.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_Core.js"></script> <!-- External Object Model JS -->
+            <script type="text/javascript" src="../../javascript/PLATFORM_Configuration.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_XHRCalls.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_BootstrapLoader.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_KeyHandling.js"></script>
+            <script type="text/javascript" src="../../javascript/PLATFORM_WidgetCallback.js"></script>
+
+
+            <!-- External JS Related to the OUX -->
+            <script type="text/javascript" src="./OUX2_Core.js"></script>
+            <script type="text/javascript" src="./OUX2_LayoutClass.js"></script> <!-- External Object Model JS -->
+            <script type="text/javascript" src="./OUX2_LayoutManagement.js"></script> <!-- External JS Layout1 -->
+            <script type="text/javascript" src="./OUX2_ThemeManagement.js"></script> <!-- External JS Layout1 -->
+
+            <!-- External CSSs related to the OUX -->
+            <link type="text/css" rel="stylesheet" href="./OUX2.css"/>
+
+	</head>
+	<body>
+             
+		<div id="platform_container">
+			<div id="layout_container" class="noLayout">
+                            <div id="video_container">
+                                   <embed type="application/x-motorola-toi" hidden="true">
+                                   <videoplane id='videoplane' class ="fullvideo">
+                                   </videoplane> <!-- added by Nadu for video embedding -->
+                           </div>
+				<div class="widget_container"></div>
+			</div> <!-- End Layout DIV -->
+		</div> <!-- End Container DIV -->
+
+    </body>
+</html>

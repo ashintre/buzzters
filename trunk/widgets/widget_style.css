@@ -1,0 +1,45 @@
+/*Maintain fixed size for different views!*/
+html,body{
+	padding: 0;
+	margin: 0;
+}
+
+/*Icon View Configuration*/
+.icon{
+	width: 90px;
+	height: 90px;
+	margin: 0;
+	padding: 0;
+}
+
+/*Small View Configuration*/
+.small{
+	width: 320px;
+	height: 180px;	
+	margin: 0;
+	padding: 0;
+}
+
+/*Ticker View Configuration*/
+.ticker{
+	width: 1280px;
+	height: 90px;
+	margin: 0;
+	padding: 0;
+}
+
+/*Regular View Configuration*/
+.regular{
+	width: 320px;
+	height: 450px;	
+	margin: 0;
+	padding: 0;
+}
+
+/*Full View Configuration*/
+.full{
+	width: 1280px;
+	height: 720px;	
+	margin: 0;
+	padding: 0;
+}
