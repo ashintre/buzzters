@@ -8,7 +8,8 @@ var APIKEY = "dd27fee2224698e58c5e5a3886b5dee0/";
 var MOVIE_IMDB_LOOKUP = "Movie.imdbLookup/en/json/";
 var MOVIE_TMDB_GETINFO = "Movie.getInfo/en/json/";
 
-
+var generalInfo = new Array();
+var __delimiter = " : ";
 /*
  * panels array - this is the format of the array to be passed to the createTabs function of the Elements Library
  * Each tab has a panel associated with it. This panel is enclosed by a <div> with id specified in the array
@@ -19,7 +20,6 @@ var panels = new Array(
 {id: 'thirdParty', name: 'Cast'},
 {id: 'uielements', name: 'Description'}
 );
-
 
 /**
 @description implemented by the Widget Developer to return the class that will be associated with the active element. The widget developer can have if-else or switch-case statements for associating different classes with different elements
@@ -75,10 +75,11 @@ $(document).ready(function(){
 	 */
 	createTabs(panels);
 	platform = getPlatform();		
+	/*
 	$("#tabs").bind("tabsselect", function(event, ui) {
 		console.log("Tab selection called");		
 		
-	});
+	});*/
 	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);	
 });
 
@@ -86,21 +87,15 @@ $(document).ready(function(){
 function init(){			
 }
 
-function nowPlayingAggregator(nowPlayingInfo){
-	//var nowPlayingStr =  "<b>"+ nowPlayingInfo.title + "</b>" +"<br/><br/>" + nowPlayingInfo.description;
-	/*var innerHTML = "<b> Movie Name : " + nowPlayingInfo.title + "</b><br>";
-	innerHTML += "<b> Movie Description : " + nowPlayingInfo.description + "</b><br>";
-	$('#csf').html(innerHTML);
-	$('#thirdParty').html("Put cast here");*/
-	
+function nowPlayingAggregator(nowPlayingInfo){	
 	// API_GET_IMDB_ID contains the baseURL for the API to get IMDB Id of movie from movie name
 	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('Inception')), function(data)
 	{					
 		if ((data !== null) && (data !== undefined)) 
 		{
-			console.log("IMDB URL is " + data.imdburl);			
-			console.log("Movie is available in " + data.languages);
-			console.log("Movie genres are " + data.genres);
+			console.log("IMDB URL is " + data.imdburl);
+			generalInfo['Genre'] = data.genres; //console.log("Movie genres are " + data.genres);
+			generalInfo['Available Languages'] = data.languages; //console.log("Movie is available in " + data.languages);			
 			if(data.imdburl != "")
 			{
 				// IMDB URL is in the form "http://www.imdb.com/title/tt1375666/" where tt1375666 is the IMDBId of the movie. Get this data from the URL
@@ -115,27 +110,40 @@ function nowPlayingAggregator(nowPlayingInfo){
 function getTMDBBaseDetails(imdbId)
 {
 	var tmdbLookupURL = TMDB_BASE_URL + MOVIE_IMDB_LOOKUP + APIKEY + imdbId;
-	console.log(tmdbLookupURL);
+	console.log(tmdbLookupURL);	
 	$.getJSON(getProxyURL(tmdbLookupURL), function(tmdb_lookup_response)
 	{
 		if((tmdb_lookup_response != null) && (tmdb_lookup_response != undefined))
 		{									
-			console.log("IMDB Rating is " + tmdb_lookup_response[0].rating);
-			console.log("Certification " + tmdb_lookup_response[0].certification);
-			console.log("Released " + tmdb_lookup_response[0].released);
-			console.log("Runtime " + Math.floor(tmdb_lookup_response[0].runtime/60) + 'hr' + tmdb_lookup_response[0].runtime%60 + 'min');
+			generalInfo['IMDB Rating'] = tmdb_lookup_response[0].rating; //console.log("IMDB Rating is " + tmdb_lookup_response[0].rating);
+			generalInfo['Certification'] = tmdb_lookup_response[0].certification; //console.log("Certification " + tmdb_lookup_response[0].certification);
+			generalInfo['Released'] = tmdb_lookup_response[0].released; //console.log("Released " + tmdb_lookup_response[0].released);
+			generalInfo['Runtime'] = Math.floor(tmdb_lookup_response[0].runtime/60) + 'hr' + tmdb_lookup_response[0].runtime%60 + 'min';
+			//console.log("Runtime " + Math.floor(tmdb_lookup_response[0].runtime/60) + 'hr' + tmdb_lookup_response[0].runtime%60 + 'min');
 			var tmdbId = tmdb_lookup_response[0].id;
 			
 			var tmdbInfoURL = TMDB_BASE_URL + MOVIE_TMDB_GETINFO + APIKEY + tmdbId;
 			$.getJSON(getProxyURL(tmdbInfoURL), function(tmdb_info_response)
 			{
-				console.log("Tagline : " + tmdb_info_response[0].tagline);
-				console.log("Budget : $" + tmdb_info_response[0].budget);
-				console.log("Revenue : $" + tmdb_info_response[0].revenue);
+				generalInfo['Tagline'] = tmdb_info_response[0].tagline; //console.log("Tagline : " + tmdb_info_response[0].tagline);
+				generalInfo['Budget'] = "$" + tmdb_info_response[0].budget; //console.log("Budget : $" + tmdb_info_response[0].budget);
+				generalInfo['Revenue'] = "$" + tmdb_info_response[0].revenue; //console.log("Revenue : $" + tmdb_info_response[0].revenue);
+				setGeneralHTML();
 				populateCastInfo(tmdb_info_response);
 			});						
 		}
 	});
+}
+
+function setGeneralHTML()
+{
+	var generalInfoHTML = "<ul class='gnrlInfo'>";
+	for(var key in generalInfo)
+	{
+		generalInfoHTML += "<li>" + key + __delimiter + generalInfo[key] + "</li>";
+	}
+	generalInfoHTML += "</ul>";
+	$("#csf").html(generalInfoHTML);
 }
 
 function populateCastInfo(tmdb_info_response)
@@ -188,7 +196,8 @@ function setCastHTML(cast)
 	$("#thirdParty").html(castAccordionHTML);
 	$("#castAccordion").accordion({
 		autoheight:"false",
-		change:function(event, ui){			
+		change:function(event, ui){
+			//TODO: Use ui.newHeader to preferably set size of the span. Alternatively use ui.newContent
 			$("#castAccordion .custAccrdCnt").parent().height(150);
 		},
 		event:"mouseover"
