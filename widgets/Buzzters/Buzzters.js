@@ -72,20 +72,18 @@ function keyHandler(function_keyPress){
 
 $(document).ready(function(){  
 	/* add code that will be called before init() is called
-	 */	 
-});
-
-
-function init(){
-		
+	 */
 	createTabs(panels);
 	platform = getPlatform();		
-	$( "#tabs" ).bind("tabsselect", function(event, ui) {
+	$("#tabs").bind("tabsselect", function(event, ui) {
 		console.log("Tab selection called");		
 		
 	});
 	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);	
+});
 
+
+function init(){			
 }
 
 function nowPlayingAggregator(nowPlayingInfo){
@@ -146,7 +144,10 @@ function populateCastInfo(tmdb_info_response)
 	var cast = new Array();
 	for(var index in tmdb_info_response[0].cast)
 	{		
-		if($.inArray(tmdb_info_response[0].cast[index].job, jobs) == -1)
+		// Just filtering out two jobs for now to resolve space issues.
+		// TODO: Try to put it back when space issues are resolved
+		var currentJob = tmdb_info_response[0].cast[index].job;
+		if($.inArray(currentJob, jobs) == -1 && currentJob != 'Editor' && currentJob != 'Director of Photography')
 		{	
 			jobs.push(tmdb_info_response[0].cast[index].job);
 			cast[tmdb_info_response[0].cast[index].job] = new Array();
@@ -157,31 +158,42 @@ function populateCastInfo(tmdb_info_response)
 	// Put these into the cast Array	
 	for(var index in tmdb_info_response[0].cast)
 	{
-		cast[tmdb_info_response[0].cast[index].job].push(tmdb_info_response[0].cast[index].name);
+		// Just filtering out two jobs for now to resolve space issues.
+		// TODO: Try to put it back when space issues are resolved
+		var currentJob = tmdb_info_response[0].cast[index].job;
+		if(currentJob != 'Editor' && currentJob != 'Director of Photography')
+		{
+			cast[tmdb_info_response[0].cast[index].job].push(tmdb_info_response[0].cast[index].name);
+		}		
 	}
 	setCastHTML(cast);
 }
 
 function setCastHTML(cast)
 {
-	//First create the accordion	
-	$("#thirdParty").append($("<div id='castAccordion'></div>"));
-	for(var index in cast)
-	{
-		$("#castAccordion").append($("<h3><a href='#'>" + index + "</a></h3>"));
-		$("#castAccordion").append($("<div><p>Random Text</p></div>"));
-	}
-	
-	/*var castAccordionHTML = "<div id='castAccordion'>";
+	//First create the accordion		
+	var castAccordionHTML = "<div id='castAccordion'>";
 	for(var index in cast)
 	{
 		castAccordionHTML += "<h3><a href='#'>" + index + "</a></h3>";
-		castAccordionHTML += "<div>Random Text</div>";
+		castAccordionHTML += "<div><span class='custAccrdCnt'><ul>";
+		$.each(cast[index], function(i, castMember){
+			castAccordionHTML += "<li>" + castMember +"</li>";
+			if(i >= 4){return false;}			// This breaks the loop. Used to limit the size of displayed content
+		});
+		castAccordionHTML += "</ul></span></div>";
 	}
 	castAccordionHTML += "</div>";
 	console.log(castAccordionHTML);
-	$("#thirdParty").html(castAccordionHTML);*/
-	$("#castAccordion").accordion();
+	$("#thirdParty").html(castAccordionHTML);
+	$("#castAccordion").accordion({
+		autoheight:"false",
+		change:function(event, ui){			
+			$("#castAccordion .custAccrdCnt").parent().height(150);
+		},
+		event:"mouseover"
+	});
+	$("#castAccordion").accordion("activate", 1);		
 }
 
 function parseableMovieName(origName)
