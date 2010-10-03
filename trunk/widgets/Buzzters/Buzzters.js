@@ -10,16 +10,33 @@ var MOVIE_TMDB_GETINFO = "Movie.getInfo/en/json/";
 
 var generalInfo = new Array();
 var __delimiter = " : ";
+var channelIndexStationIdMap = new Array();
+
+
+String.prototype.commafy = function () {
+	return this.replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+		return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+	});
+}
+
+Number.prototype.commafy = function () {
+	return String(this).commafy();
+}
+
 /*
  * panels array - this is the format of the array to be passed to the createTabs function of the Elements Library
  * Each tab has a panel associated with it. This panel is enclosed by a <div> with id specified in the array
  * The name/label of the tab is also specified here 
  */
 var panels = new Array(
-{id: 'csf', name: 'Overview'},
+{id: 'csf', name: 'General'},
 {id: 'thirdParty', name: 'Cast'},
-{id: 'uielements', name: 'Description'}
+{id: 'uielements', name: 'Poster'},
+{id: 'description', name: 'Synopsis'}
 );
+
+var movieChannelIndexes = [3, 4];
+var tvSeriesChannelIndexes = [12397];
 
 /**
 @description implemented by the Widget Developer to return the class that will be associated with the active element. The widget developer can have if-else or switch-case statements for associating different classes with different elements
@@ -74,22 +91,27 @@ $(document).ready(function(){
 	/* add code that will be called before init() is called
 	 */
 	createTabs(panels);
-	platform = getPlatform();		
-	/*
-	$("#tabs").bind("tabsselect", function(event, ui) {
-		console.log("Tab selection called");		
-		
-	});*/
-	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);	
 });
 
 
-function init(){			
+function init(){	
+	platform = getPlatform();	
+	subscribeChannelChangeEvent();
+	getStationList(function(stations){
+		for(var channelIndex in stations)
+		{
+			channelIndexStationIdMap.push(stations[channelIndex].stationId);
+			console.log("Index " + channelIndex + " Channel " + stations[channelIndex].stationId);
+		}
+	});
+	channelChangeEventHandler(platform.getCurrentChannelIndex());	
+	//top.switchToChannel("225.1.1.15:5015");
 }
 
-function nowPlayingAggregator(nowPlayingInfo){	
+function populateMovieInfo()
+{			
 	// API_GET_IMDB_ID contains the baseURL for the API to get IMDB Id of movie from movie name
-	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('Inception')), function(data)
+	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('The Green Mile')), function(data)
 	{					
 		if ((data !== null) && (data !== undefined)) 
 		{
@@ -105,6 +127,42 @@ function nowPlayingAggregator(nowPlayingInfo){
 			}
 		}
 	});
+}
+
+function channelChangeEventHandler(channelIndex){	
+	console.log(">>> In channel changed event with channelIndex " + channelIndex);
+	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);
+	/*if($.inArray(channelIndex, movieChannelIndexes) != -1)
+	{
+		console.log(">>>>>>>>>>>>>>>>>>>>>>>>OHOH");
+		populateMovieInfo();
+	}
+	else if($.inArray(channelIndex, movieChannelIndexes) != -1)
+	{
+		// Call function for TV series
+	}
+	else
+	{
+		// Insert code for channel currently not supported or other content
+	}*/
+}
+
+function nowPlayingAggregator(nowPlayingInfo){	
+	
+	// Code to distinguish between Movie/TV Series/News/Sports goes here
+	if((nowPlayingInfo.rating == null) || (nowPlayingInfo.rating == undefined))
+	{
+		// Must be a Sports/News Channel. At best we can present meta-data
+	}
+	else if(nowPlayingInfo.rating.indexOf('TV') != -1)
+	{
+		// Its a TV Series/Movie. Expand widget code to accomodate for this
+		populateMovieInfo();
+	}
+	else
+	{
+		console.log(">>>> UNEXPECTED MOVIE RATING" + nowPlayingInfo.rating + " FOUND. Populating default aggregated data");
+	}
 }
 
 function getTMDBBaseDetails(imdbId)
@@ -126,8 +184,8 @@ function getTMDBBaseDetails(imdbId)
 			$.getJSON(getProxyURL(tmdbInfoURL), function(tmdb_info_response)
 			{
 				generalInfo['Tagline'] = tmdb_info_response[0].tagline; //console.log("Tagline : " + tmdb_info_response[0].tagline);
-				generalInfo['Budget'] = "$" + tmdb_info_response[0].budget; //console.log("Budget : $" + tmdb_info_response[0].budget);
-				generalInfo['Revenue'] = "$" + tmdb_info_response[0].revenue; //console.log("Revenue : $" + tmdb_info_response[0].revenue);
+				generalInfo['Budget'] = "$ " + tmdb_info_response[0].budget.commafy(); //console.log("Budget : $" + tmdb_info_response[0].budget);
+				generalInfo['Revenue'] = "$ " + tmdb_info_response[0].revenue.commafy(); //console.log("Revenue : $" + tmdb_info_response[0].revenue);
 				setGeneralHTML();
 				populateCastInfo(tmdb_info_response);
 			});						
@@ -136,14 +194,31 @@ function getTMDBBaseDetails(imdbId)
 }
 
 function setGeneralHTML()
-{
-	var generalInfoHTML = "<ul class='gnrlInfo'>";
+{	
+	var generalInfoHTML = "<table class='gnrlInfo'><tbody>";
 	for(var key in generalInfo)
 	{
-		generalInfoHTML += "<li>" + key + __delimiter + generalInfo[key] + "</li>";
+		generalInfoHTML += "<tr><td class='ui-state-default ui-corner-all infoHeader'>" + key + "</td><td colspan='2' class='infoDetail'>" + generalInfo[key] + "</td></tr>";
 	}
-	generalInfoHTML += "</ul>";
+	generalInfoHTML += "<tr><td class='ui-state-default ui-corner-all infoHeader'>Rotten Tomatoes</td>" +
+					   "<td width='170px'><div id='rottenTomatoesBar' style='padding-left:0.2em; padding-right:0.3em'></div></td>" +
+					   "<td><span class='tomatoMeter'></span></td></tr>";
+	generalInfoHTML += "</tbody></table>";
 	$("#csf").html(generalInfoHTML);
+	$("#rottenTomatoesBar").progressbar({value:82});
+	$(".tomatoMeter").html('82%');
+	
+	var moviePosterImg = "<img src='http://hwcdn.themoviedb.org/posters/2ea/4c585b405e73d63a6d0002ea/inception-mid.jpg' height='365' width='270'>";
+	$('#uielements').html(moviePosterImg);
+}
+
+function animateTomatoBar(value)
+{	
+	$("#rottenTomatoesBar").progressbar("value", value);
+	if(value < 80)
+	{	
+		setTimeout(animateTomatoBar(value+5), 10000000);
+	}
 }
 
 function populateCastInfo(tmdb_info_response)
