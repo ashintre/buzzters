@@ -23,6 +23,19 @@ Number.prototype.commafy = function () {
 	return String(this).commafy();
 }
 
+function parseableMovieName(origName){
+	return origName.split(" ").join("+");
+}
+
+function isMovieDuration(endTime, startTime)
+{
+	var time1 = new Date(entTime);
+	var time2 = new Date(startTime);
+	var lengthOfShow = new Date();
+	lengthofShow.setTime(time1 - time2)
+	return ((lengthofShow.getHours() >= 1) && (lengthofShow.getMinutes() >= 0));	
+}
+
 /*
  * panels array - this is the format of the array to be passed to the createTabs function of the Elements Library
  * Each tab has a panel associated with it. This panel is enclosed by a <div> with id specified in the array
@@ -110,8 +123,9 @@ function init(){
 
 function populateMovieInfo()
 {			
+	debugger;
 	// API_GET_IMDB_ID contains the baseURL for the API to get IMDB Id of movie from movie name
-	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('The Green Mile')), function(data)
+	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('Inception')), function(data)
 	{					
 		if ((data !== null) && (data !== undefined)) 
 		{
@@ -131,20 +145,7 @@ function populateMovieInfo()
 
 function channelChangeEventHandler(channelIndex){	
 	console.log(">>> In channel changed event with channelIndex " + channelIndex);
-	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);
-	/*if($.inArray(channelIndex, movieChannelIndexes) != -1)
-	{
-		console.log(">>>>>>>>>>>>>>>>>>>>>>>>OHOH");
-		populateMovieInfo();
-	}
-	else if($.inArray(channelIndex, movieChannelIndexes) != -1)
-	{
-		// Call function for TV series
-	}
-	else
-	{
-		// Insert code for channel currently not supported or other content
-	}*/
+	nowPlaying(platform.getCurrentStationId(), nowPlayingAggregator);	
 }
 
 function nowPlayingAggregator(nowPlayingInfo){	
@@ -188,7 +189,9 @@ function getTMDBBaseDetails(imdbId)
 				generalInfo['Revenue'] = "$ " + tmdb_info_response[0].revenue.commafy(); //console.log("Revenue : $" + tmdb_info_response[0].revenue);
 				setGeneralHTML();
 				populateCastInfo(tmdb_info_response);
-			});						
+				populateOverViewTab(tmdb_lookup_response);
+			});
+			populatePostersTab(tmdb_lookup_response);
 		}
 	});
 }
@@ -206,10 +209,12 @@ function setGeneralHTML()
 	generalInfoHTML += "</tbody></table>";
 	$("#csf").html(generalInfoHTML);
 	$("#rottenTomatoesBar").progressbar({value:82});
-	$(".tomatoMeter").html('82%');
-	
-	var moviePosterImg = "<img src='http://hwcdn.themoviedb.org/posters/2ea/4c585b405e73d63a6d0002ea/inception-mid.jpg' height='365' width='270'>";
-	$('#uielements').html(moviePosterImg);
+	$(".tomatoMeter").html('82%');	
+}
+
+function populateOverViewTab(tmdb_lookup_response)
+{
+	$('#description').html(tmdb_lookup_response[0].overview);
 }
 
 function animateTomatoBar(value)
@@ -280,9 +285,38 @@ function setCastHTML(cast)
 	$("#castAccordion").accordion("activate", 1);		
 }
 
-function parseableMovieName(origName)
+function populatePostersTab(tmdb_lookup_response)
 {
-	return origName.split(" ").join("+");
+	var posterImgUrls = getMoviePosters(tmdb_lookup_response);
+	console.log(">>>Poster Image URLs : " + posterImgUrls);
+	//Create base to put images in	
+	var posterTabContent = "<div id='posterSlideShow' class='pics'>";
+	for(var i in posterImgUrls)
+	{
+		posterTabContent += "<img src='" + posterImgUrls[i] + "' width='270px' height='365px' />";
+	}
+	posterTabContent += "</div>";
+	$('#uielements').html(posterTabContent);
+	$('#posterSlideShow').cycle({ 
+		fx : 'shuffle',
+		delay : -4000
+	});	
+}
+
+function getMoviePosters(tmdb_lookup_response)
+{	
+	var count = 0, max_count = 3;
+	var posterImgUrls = new Array();	
+	$.each(tmdb_lookup_response[0].posters, function(posterIndex, poster){
+		if(count >= max_count){return false;}
+		//if(1)
+		if(poster.image.size == "mid" || poster.image.size == "original")
+		{
+			posterImgUrls.push(poster.image.url);
+			++count;
+		}		
+	});
+	return posterImgUrls;
 }
 
 /*
