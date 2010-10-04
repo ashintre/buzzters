@@ -302,7 +302,7 @@ function populatePostersTab(tmdb_lookup_response)
 	var posterTabContent = "<div id='posterSlideShow' class='pics'>";
 	for(var i in posterImgUrls)
 	{
-		posterTabContent += "<img src='" + posterImgUrls[i] + "' width='250px' height='340px' />";
+		posterTabContent += "<img src='" + posterImgUrls[i] + "' width='270px' height='350px' />";
 	}
 	posterTabContent += "</div>";
 	$('#uielements').html(posterTabContent);
@@ -310,7 +310,7 @@ function populatePostersTab(tmdb_lookup_response)
 		fx : 'shuffle',
 		delay : -2000,
 		shuffle : {
-			top : 15,
+			top : 25,
 			left : 260
 		}		
 	});	
@@ -318,12 +318,12 @@ function populatePostersTab(tmdb_lookup_response)
 
 function getMoviePosters(tmdb_lookup_response)
 {	
-	var count = 0, max_count = 3;
+	var count = 0, max_count = 4;
 	var posterImgUrls = new Array();	
 	$.each(tmdb_lookup_response[0].posters, function(posterIndex, poster){
 		if(count >= max_count){return false;}
 		//if(1)
-		if(poster.image.size == "mid" || poster.image.size == "original")
+		if(poster.image.size == "mid")
 		{
 			posterImgUrls.push(poster.image.url);
 			++count;
