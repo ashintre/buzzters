@@ -7,6 +7,7 @@ var TMDB_BASE_URL = "http://api.themoviedb.org/2.1/";
 var APIKEY = "dd27fee2224698e58c5e5a3886b5dee0/";
 var MOVIE_IMDB_LOOKUP = "Movie.imdbLookup/en/json/";
 var MOVIE_TMDB_GETINFO = "Movie.getInfo/en/json/";
+var GET_TOMATO_RATING = "http://www.rottentomatoes.com/m/";
 
 var generalInfo = new Array();
 var __delimiter = " : ";
@@ -117,15 +118,14 @@ function init(){
 			console.log("Index " + channelIndex + " Channel " + stations[channelIndex].stationId);
 		}
 	});
-	channelChangeEventHandler(platform.getCurrentChannelIndex());	
+	channelChangeEventHandler(platform.getCurrentChannelIndex());
 	//top.switchToChannel("225.1.1.15:5015");
 }
 
 function populateMovieInfo()
-{			
-	debugger;
+{				
 	// API_GET_IMDB_ID contains the baseURL for the API to get IMDB Id of movie from movie name
-	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('Inception')), function(data)
+	$.getJSON(getProxyURL(API_GET_IMDB_ID + parseableMovieName('The Dark Knight')), function(data)
 	{					
 		if ((data !== null) && (data !== undefined)) 
 		{
@@ -141,6 +141,7 @@ function populateMovieInfo()
 			}
 		}
 	});
+	setTomatoMeter("The Dark Knight".replace(/\s/g, "_"));
 }
 
 function channelChangeEventHandler(channelIndex){	
@@ -210,6 +211,14 @@ function setGeneralHTML()
 	$("#csf").html(generalInfoHTML);
 	$("#rottenTomatoesBar").progressbar({value:82});
 	$(".tomatoMeter").html('82%');	
+}
+
+function setTomatoMeter(movieName)
+{
+	$.get(getProxyURL(GET_TOMATO_RATING + movieName), function(data){
+		var tomatoRating = document.evaluate("//span[@id='all-critics-meter']/text()", data, null, XPathResult.ANY_TYPE, null );  
+		console.log(">>>>>>>>>>>>TomatoRating : " + tomatoRating);
+	});
 }
 
 function populateOverViewTab(tmdb_lookup_response)
@@ -293,13 +302,17 @@ function populatePostersTab(tmdb_lookup_response)
 	var posterTabContent = "<div id='posterSlideShow' class='pics'>";
 	for(var i in posterImgUrls)
 	{
-		posterTabContent += "<img src='" + posterImgUrls[i] + "' width='270px' height='365px' />";
+		posterTabContent += "<img src='" + posterImgUrls[i] + "' width='250px' height='340px' />";
 	}
 	posterTabContent += "</div>";
 	$('#uielements').html(posterTabContent);
 	$('#posterSlideShow').cycle({ 
 		fx : 'shuffle',
-		delay : -4000
+		delay : -2000,
+		shuffle : {
+			top : 15,
+			left : 260
+		}		
 	});	
 }
 
